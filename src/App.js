@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import LoginPage from './pages/LoginPage';
+import CaregiverJoin from './pages/CaregiverJoin';
+import SeniorJoin from './pages/SeniorJoin';
+import CaregiverInfo from './pages/CaregiverInfo';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/login" element={<LoginPage />} />
+
+      <Route path="/register">
+        <Route path="caregiver">
+          <Route index element={<CaregiverJoin />} />
+          <Route path="info" element={<CaregiverInfo />} />
+        </Route>
+        <Route path="senior" element={<SeniorJoin />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;

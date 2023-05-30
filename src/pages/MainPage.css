@@ -1,0 +1,62 @@
+/*BANNER*/
+.MainBanner {
+  box-sizing: initial;
+  height: 200px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 238, 176, 0.37) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  border-bottom: 2.5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+#BannerImg {
+  width: 112px;
+  height: 114px;
+}
+#BannerText {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15%;
+  width: 63%;
+  align-items: flex-end;
+}
+#BannerText > span:nth-child(1) {
+  padding-right: 7px;
+}
+#BannerText > span:nth-child(2) {
+  padding-top: 15px;
+  line-height: 30px;
+  position: relative;
+}
+.BanerTxtDeco {
+  color: #ed174f;
+}
+#BanHeart {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 9px;
+  right: -10px;
+}
+
+/*btn Area*/
+.MainBtns {
+  height: 50px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+/*font*/
+#BannerText {
+  font-family: 'Inter';
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 25px;
+  color: #000000;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
