@@ -1,3 +1,8 @@
+div{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Template {
   width: 90%;
   margin-left: auto;
@@ -9,6 +14,21 @@
   display: flex;
   height: 90px;
   justify-content: space-between;
+}
+#headerBtn{
+  background-color: #455a64;
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  border: none;
 }
 #home {
   width: 30px;
@@ -23,7 +43,8 @@
 .logo {
   margin-bottom: 10px;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 65px;
+  margin-right: 0%;
   position: relative;
 }
 #heart {
@@ -40,3 +61,15 @@
   font-size: 25px;
   line-height: 58px;
 }
+
+input[type="checkbox"]{
+  border-radius: 7px;
+  width: 25px; /*Desired width*/
+  
+  height: 25px; /*Desired height*/
+  
+  cursor: pointer;
+  
+  
+  
+  }

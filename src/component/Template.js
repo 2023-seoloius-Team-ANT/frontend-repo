@@ -1,16 +1,28 @@
-import './Template.css';
-import HeaderBtn from './common/HearderBtn';
+import { useState } from 'react';
+import './Template.scss';
+import { useNavigate } from "react-router-dom";
+
+const urlLink = {
+  false: '/login',
+  true: '/',
+};
 
 const Template = ({ children }) => {
+  const navigate = useNavigate();
+
+  const[login, Islogin] = useState(false);
+
+
+
   return (
     <div className="Template">
-      <div className="header">
-        <img src={'images/home.png'} alt="" id="home" />
+      <div className="header" >
+        <img src={'images/home.png'} alt="" id="home"onClick={() => navigate('/')}/>
         <div className="logo">
           <img src={'images/heart.png'} alt="" id="heart" />
           <span>서로이웃</span>
         </div>
-        <HeaderBtn>로그인</HeaderBtn>
+        <button id="headerBtn" onClick={() => navigate(urlLink[login])}>{login ? "로그아웃" : "로그인"}</button> 
       </div>
       {children}
     </div>

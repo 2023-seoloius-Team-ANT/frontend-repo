@@ -1,5 +1,5 @@
 
-import './MainFunction.css';
+import './MainFunction.scss';
 
 const typeMap = {
   care: '원하는 요양사를 찾아보세요.',

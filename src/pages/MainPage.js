@@ -1,8 +1,8 @@
 import Template from '../component/Template';
-import AbledBtn from '../component/common/AbledBtn';
-import DisabledBtn from '../component/common/DisableBtn';
 import MainFunction from '../component/main/MainFunction';
-import './MainPage.css';
+import UserSelectBtn from '../component/common/button/UserSelectBtn';
+import './MainPage.scss';
+
 const MainPage = () => {
   return (
     <Template>
@@ -19,8 +19,8 @@ const MainPage = () => {
         </div>
       </div>
       <div className="MainBtns">
-        <AbledBtn>고령자</AbledBtn>
-        <DisabledBtn>요양사</DisabledBtn>
+        <UserSelectBtn name="고령자" type={true} />
+        <UserSelectBtn name="요양사" type={false} />
       </div>
       <div className="functionList">
         <MainFunction type="care" />

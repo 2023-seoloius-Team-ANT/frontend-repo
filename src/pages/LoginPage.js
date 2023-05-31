@@ -1,22 +1,84 @@
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Template from '../component/Template';
-import SignBtn from '../component/common/SignBtn';
-import UserSelectArea from '../component/common/UserSelectArea';
-import './LoginPage.css';
+import SignBtn from '../component/common/button/SignBtn';
+import UserSelectBtn from '../component/common/button/UserSelectBtn';
+import './LoginPage.scss';
+
+const urlLink = {
+  findId: '/',
+  findPwd: '/',
+  signUp : "/signup"
+};
 
 const LoginPage = () => {
+  //링크 이동
+  const navigate = useNavigate();
+  //로그인 정보 폼 저장
+  const [form, setForm] = useState({
+    userid: '',
+    userpwd: '',
+  });
+
+  const onChange = (e) => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
+  };
+
+  //스타일 변경을 위한
+  const[userType, IsUserType] = useState(true);
+
+  const userTypeChange = (e) => {
+    IsUserType(!userType)
+  }
+  //링크 이동 함수
+  const goUrl = (e) => {
+    // const userType = true?"":""
+    navigate(`${urlLink[e.target.id]}/${userType?"senior":"caregiver"}`);
+  }
+
   return (
     <Template>
-      <UserSelectArea/>
-      <div className="loginArea">
-        <input type="text" id="userId" name="id" placeholder="아이디" />
-        <input type="text" id="userId" name="id" placeholder="비밀번호" />
-        <div id="loginLine" />
+      <div id='UserSelectBtns'>
+        <UserSelectBtn name="고령자" type={userType} onClick={userTypeChange}/>
+        <UserSelectBtn name="요양사" type={!userType} onClick={userTypeChange}/>
+      </div>
+      <div id="loginArea" className={userType ? "seniorColor" : "careColor"}>
+        <input 
+          type="text" 
+          className={userType ? "seniorColor" : "careColor"} 
+          id="userId"  
+          name="userid" 
+          placeholder="아이디" 
+          onChange={onChange}
+        />
+        <input 
+          type="text" 
+          className={userType ? "seniorColor" : "careColor"} 
+          id="userPwd" 
+          name="userpwd" 
+          placeholder="비밀번호" 
+          onChange={onChange}
+        />
+        <div 
+          id="loginLine" 
+          style={userType ? {borderTop: '4px solid #ed174f'} : {borderTop: '4px solid #55B682'}} />
         <div id="loginCheckbox">
-          <input type="checkbox" name="loginCheck" value="1" />
+          <input type="checkbox" name="rememberLogin" value="1" />
           로그인 상태 유지
         </div>
       </div>
-      <SignBtn>로그인</SignBtn>
+      <SignBtn color={userType ? "pink" : "green"}>로그인</SignBtn>
+      <div id='userLoginAction'>
+        <div className='userActionBtns' id='findId' onClick={goUrl}>아이디 찾기</div>
+        <span className='vLine'/>
+        <div className='userActionBtns' id='findPwd' onClick={goUrl}>비밀번호 찾기</div>
+        <span className='vLine'/>
+        <div className='userActionBtns' id='signUp' onClick={goUrl}>회원가입</div>
+      </div>
     </Template>
   );
 };

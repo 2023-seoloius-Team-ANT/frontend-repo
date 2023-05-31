@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const StyledBtn = styled.button`
-  background-color: #fd3a69;
+background-color: ${props => {
+  if (props.color === "pink") return "#fd3a69"
+  else return "#A9D196"
+}};
   border-radius: 10px;
   height: 50px;
   width: 100%;
