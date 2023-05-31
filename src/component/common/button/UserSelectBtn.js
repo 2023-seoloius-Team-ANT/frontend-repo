@@ -9,7 +9,7 @@ const UserSelectBtn = (props) =>{
                 name="userType"
                 value={props.name} 
                 className={props.type ? "AbledBtn" : "DisabledBtn"} 
-                id={props.name === "고령자" ? "seniorBtn" : "careBtn"}
+                id={props.color === "pink" ? "pinkBtn" : "greenBtn"}
                 onClick = { props.onClick }
                 />
 

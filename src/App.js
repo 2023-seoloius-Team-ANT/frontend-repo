@@ -11,12 +11,16 @@ const App = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />
 
-      <Route path="/signup">
+      {/* <Route path="/signup">
         <Route path="caregiver">
           <Route index element={<CaregiverJoin />} />
           <Route path="info" element={<CaregiverInfo />} />
         </Route>
         <Route path="senior" element={<SeniorJoin />} />
+      </Route> */}
+      <Route path="/signup">
+        <Route index element={<SeniorJoin />} />
+        <Route path="writeinfo" element={<CaregiverInfo />} />
       </Route>
     </Routes>
   );

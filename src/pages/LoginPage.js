@@ -36,15 +36,15 @@ const LoginPage = () => {
   }
   //링크 이동 함수
   const goUrl = (e) => {
-    // const userType = true?"":""
-    navigate(`${urlLink[e.target.id]}/${userType?"senior":"caregiver"}`);
+    navigate(`${urlLink[e.target.id]}`, {state:{user:`${userType?"senior":"caregiver"}`}});
   }
+  
 
   return (
     <Template>
       <div id='UserSelectBtns'>
-        <UserSelectBtn name="고령자" type={userType} onClick={userTypeChange}/>
-        <UserSelectBtn name="요양사" type={!userType} onClick={userTypeChange}/>
+        <UserSelectBtn name="고령자" color="pink" type={userType} onClick={userTypeChange}/>
+        <UserSelectBtn name="요양사" color="green" type={!userType} onClick={userTypeChange}/>
       </div>
       <div id="loginArea" className={userType ? "seniorColor" : "careColor"}>
         <input 
