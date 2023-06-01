@@ -1,0 +1,22 @@
+svg {
+  margin: 1% 1% 1% 0;
+}
+
+span {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  /* align-items: center; */
+  color: #000000;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* .text {
+  display: flex;
+} */

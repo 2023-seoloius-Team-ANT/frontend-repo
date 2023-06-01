@@ -1,0 +1,19 @@
+.UserGPSWrapper {
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  width: 638px;
+  height: 79px;
+
+  border: 7px solid #ed174f;
+  border-radius: 39.5px;
+}
+
+.mark {
+  color: #424c7a;
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  margin-left: 3%;
+}
