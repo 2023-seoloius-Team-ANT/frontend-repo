@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
-import CaregiverJoin from './pages/CaregiverJoin';
-import SeniorJoin from './pages/SeniorJoin';
+import SignUp from './pages/SignUp';
 import CaregiverInfo from './pages/CaregiverInfo';
 
 const App = () => {
@@ -10,16 +9,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />
-
-      {/* <Route path="/signup">
-        <Route path="caregiver">
-          <Route index element={<CaregiverJoin />} />
-          <Route path="info" element={<CaregiverInfo />} />
-        </Route>
-        <Route path="senior" element={<SeniorJoin />} />
-      </Route> */}
       <Route path="/signup">
-        <Route index element={<SeniorJoin />} />
+        <Route index element={<SignUp />} />
         <Route path="writeinfo" element={<CaregiverInfo />} />
       </Route>
     </Routes>

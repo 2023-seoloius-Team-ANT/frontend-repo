@@ -19,8 +19,8 @@ const MainPage = () => {
         </div>
       </div>
       <div className="MainBtns">
-        <UserSelectBtn name="고령자" type={true} />
-        <UserSelectBtn name="요양사" type={false} />
+        <UserSelectBtn name="고령자" type={true} color="pink"/>
+        <UserSelectBtn name="요양사" type={false} color="green" />
       </div>
       <div className="functionList">
         <MainFunction type="care" />

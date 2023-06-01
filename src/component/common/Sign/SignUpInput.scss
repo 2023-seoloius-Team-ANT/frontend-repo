@@ -1,0 +1,30 @@
+.inputTemplate{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    
+}
+#inputImg{
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.inputTemplate > input{
+    border: none;
+    background: transparent;
+    height: 48px;
+    width: 800%;
+    padding-left: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 48px;
+} 
+
+.userTelType{
+    width: 80px;
+}
