@@ -20,6 +20,8 @@ const StyledBtn = styled.button`
   margin-bottom: 20px;
 `;
 
-const SignBtn = (props) => <StyledBtn {...props} />;
+const SignBtn = (props) => (
+  <StyledBtn onClick={props.onClick} type={props.type} {...props} />
+);
 
 export default SignBtn;

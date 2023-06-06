@@ -17,10 +17,7 @@ const CaregiverInfoPage = () => {
         <div> 신청인에게 보일 프로필을 설정해주세요.</div>
         <div> 불성실한 대답은 신청 반려 사유가 될 수 있습니다.</div>
       </div>
-      <CaregiverInfoWrite></CaregiverInfoWrite>
-      <SignBtn color="green" onClick={opencompleteModal}>
-        저장하기
-      </SignBtn>
+      <CaregiverInfoWrite opencompleteModal={opencompleteModal} />
       {completeModal && <NoticeModal />}
     </Template>
   );

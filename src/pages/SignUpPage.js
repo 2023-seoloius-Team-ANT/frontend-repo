@@ -5,6 +5,7 @@ import UserSelectBtn from '../component/common/button/UserSelectBtn';
 import { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import SignBtn from '../component/common/button/SignBtn';
+import { Axios } from '../../node_modules/axios/index';
 
 const TOSIN_DATA = [
   { id: null, value: '통신사' },
@@ -20,13 +21,75 @@ const SignUpPage = () => {
   let user = { ...location.state }.user;
   let color = user === 'senior' ? 'pink' : 'green';
 
-  const [gender, Isgender] = useState(true);
+  const [genderBtn, setGenderBtn] = useState(true);
   const [modalState, setModalState] = useState(false);
-  const [inputAddressValue, setInputAddressValue] = useState('');
   const [inputZipCodeValue, setInputZipCodeValue] = useState('');
+  const [registerForm, setForm] = useState({
+    id: '',
+    pwd: '',
+    name: '',
+    tel: '',
+    telcare: '',
+    birth: '',
+    address: '',
+    gender: 0,
+    profileImage: null,
+    certiImage: null,
+    lati: '',
+    lon: '',
+    spec1: '',
+    spec2: '',
+    spec3: '',
+  });
 
   const genderChange = () => {
-    Isgender(!gender);
+    const nextForm = {
+      ...registerForm,
+      gender: registerForm.gender === 0 ? 1 : 0,
+    };
+    setForm(nextForm);
+    setGenderBtn(!genderBtn);
+  };
+  const fileChange = (e) => {
+    const nextForm = {
+      ...registerForm,
+      [e.target.name]: e.target.files[0],
+    };
+    setForm(nextForm);
+  };
+  const formChange = (e) => {
+    const nextForm = {
+      ...registerForm,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
+  };
+
+  const postForm = (e) => {
+    if (e.target.color === 'pink') {
+      Axios.post('/api/v1/senior', registerForm).then((response) => {
+        console.log('성공');
+      });
+    } else if (e.target.color === 'green') {
+      const formData = new FormData();
+      formData.append('files', [
+        registerForm.profileImage,
+        registerForm.certiImage,
+      ]);
+      formData.append(
+        'data',
+        new Blob([JSON.stringify(registerForm)], {
+          type: 'application/json',
+        }),
+      );
+      Axios.post('/api/v1/caregiver', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }).then((response) => {
+        console.log('성공');
+      });
+    }
   };
 
   const seniorCompleteSignup = () => {
@@ -38,13 +101,21 @@ const SignUpPage = () => {
 
   const onCompletePost = (data) => {
     setModalState(false);
-    setInputAddressValue(data.address);
+    const newForm = {
+      ...registerForm,
+      address: data.address,
+    };
+    setForm(newForm);
     setInputZipCodeValue(data.zonecode);
   }; // onCompletePost 함수
 
   return (
     <Template>
-      <form>
+      <form
+        encType="multipart/form-data"
+        method="post"
+        action={color === 'pink' ? '/api/v1/senior' : '/api/v1/caregiver'}
+      >
         <div className="signTitle">회원가입</div>
         <div className={`${color} signupArea`} id="accountForm">
           <div className="inputTemplate">
@@ -56,8 +127,8 @@ const SignUpPage = () => {
             <input
               className="signUpInput"
               type="text"
-              name="userid"
-              // onChange={valueChange}
+              name="id"
+              onChange={formChange}
               placeholder="아이디"
             />
           </div>
@@ -71,8 +142,8 @@ const SignUpPage = () => {
             <input
               className="signUpInput"
               type="text"
-              name="userpwd"
-              // onChange={valueChange}
+              name="pwd"
+              onChange={formChange}
               placeholder="비밀번호"
             />
           </div>
@@ -86,7 +157,7 @@ const SignUpPage = () => {
             <input
               className="signUpInput"
               type="text"
-              name="userpwdcheck"
+              name="pwdCheck"
               // onChange={valueChange}
               placeholder="비밀번호 확인"
             />
@@ -104,8 +175,8 @@ const SignUpPage = () => {
             <input
               className="signUpInput"
               type="text"
-              name="userid"
-              // onChange={valueChange}
+              name="name"
+              onChange={formChange}
               placeholder="이름"
             />
           </div>
@@ -119,9 +190,9 @@ const SignUpPage = () => {
             <input
               className="signUpInput"
               type="text"
-              name="userpwd"
-              // onChange={valueChange}
-              placeholder="생년월일"
+              name="birth"
+              onChange={formChange}
+              placeholder="생년월일(8글자)"
             />
           </div>
           <div className="hLine" id={color} />
@@ -134,8 +205,8 @@ const SignUpPage = () => {
             <input
               className="signUpInput"
               type="text"
-              name="userpwdcheck"
-              // onChange={valueChange}
+              name="tel"
+              onChange={formChange}
               placeholder="전화번호"
             />
             <select className="userTelType">
@@ -157,8 +228,8 @@ const SignUpPage = () => {
                 <input
                   className="signUpInput"
                   type="text"
-                  name="userpwdcheck"
-                  // onChange={valueChange}
+                  name="telcare"
+                  onChange={formChange}
                   placeholder="보호자 전화번호"
                 />
                 <select className="userTelType">
@@ -174,14 +245,14 @@ const SignUpPage = () => {
             <UserSelectBtn
               className="genderBtn"
               name="남자"
-              type={gender}
+              type={genderBtn}
               color="pink"
               onClick={genderChange}
             />
             <UserSelectBtn
               className="genderBtn"
               name="여자"
-              type={!gender}
+              type={!genderBtn}
               color="green"
               onClick={genderChange}
             />
@@ -221,9 +292,10 @@ const SignUpPage = () => {
           </div>
           <input
             type="text"
-            defaultValue={inputAddressValue}
+            defaultValue={registerForm.address}
             placeholder="주소"
             className="addressSetInput"
+            name="address"
           />
           <input
             type="text"
@@ -247,8 +319,8 @@ const SignUpPage = () => {
               <input
                 className="signUpInput"
                 type="text"
-                name="userpwdcheck"
-                // onChange={valueChange}
+                name="spec1"
+                onChange={formChange}
                 placeholder="눌러서 입력해주세요"
               />
             </div>
@@ -257,8 +329,8 @@ const SignUpPage = () => {
               <input
                 className="signUpInput"
                 type="text"
-                name="userpwdcheck"
-                // onChange={valueChange}
+                name="spec2"
+                onChange={formChange}
                 placeholder="눌러서 입력해주세요"
               />
             </div>
@@ -267,8 +339,8 @@ const SignUpPage = () => {
               <input
                 className="signUpInput"
                 type="text"
-                name="userpwdcheck"
-                // onChange={valueChange}
+                name="spec3"
+                onChange={formChange}
                 placeholder="눌러서 입력해주세요"
               />
             </div>
@@ -286,7 +358,30 @@ const SignUpPage = () => {
               <label htmlFor="certificateUpload">업로드</label>
             </div>
             <div className="inputTemplate">
-              <input type="file" id="certificateUpload" />
+              <input
+                type="file"
+                onChange={fileChange}
+                name="certiImage"
+                id="certificateUpload"
+              />
+            </div>
+            <div className="hLine" id={color} />
+            <div className="inputTemplate">
+              <img
+                src={process.env.PUBLIC_URL + '/images/photo.png'}
+                alt=""
+                id="inputImg"
+              />
+              <div className="CustomAreaTitle">프로필 사진</div>
+              <label htmlFor="certificateUpload">업로드</label>
+            </div>
+            <div className="inputTemplate">
+              <input
+                type="file"
+                name="profileImage"
+                onChange={fileChange}
+                id="certificateUpload"
+              />
             </div>
             <div className="hLine" id={color} />
             <div className="inputTemplate">
@@ -296,13 +391,10 @@ const SignUpPage = () => {
             </div>
           </div>
         )}
+        <SignBtn type="submit" color={color} onClick={postForm}>
+          회원가입
+        </SignBtn>
       </form>
-      <SignBtn
-        onClick={color === 'pink' ? seniorCompleteSignup : careCompleteSignup}
-        color={color}
-      >
-        회원가입
-      </SignBtn>
     </Template>
   );
 };
