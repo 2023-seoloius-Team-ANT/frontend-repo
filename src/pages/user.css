@@ -1,0 +1,179 @@
+.header{width: 100%;margin-top: 18px;display: flex;flex-wrap: wrap;justify-content: space-between;}
+.logo{width: 59px;height: 59px;margin-top: 30px;margin-left: 30px;}
+.header > button{
+
+width: 66px;
+
+height: 66px;
+
+background-color: #a9d196;
+
+border-radius: 15px;
+
+margin-top: 31px;
+
+margin-right: 38px;
+
+box-shadow: 0 0 20px #A9D196;
+}
+.header > button > img{
+
+}
+.info{width: 603px;height: 195px;margin-top: 47px;margin-right: 54px;margin-left: 55px;border-bottom: 7px solid #8e6138;}
+.user{
+    width: 227px;
+    height: 160px;
+    float: left;
+}
+.user > p {
+
+font-weight: 600;
+
+font-size: 40px;
+
+font-style: normal;
+
+margin-left: 27px;
+}
+.mypage{width: 167px;height: 40px;border-radius: 15px;background-color: #a9d196;font-style: normal;font-weight: 900;font-size: 24px;line-height: 40px;margin-left: 27px;}
+.treefox{
+
+float: right;
+
+margin-bottom: -12px;
+}
+.tree{
+
+display: inline-block;
+
+margin-top: 3px;
+}
+.fox{
+
+display: inline-block;
+
+margin-top: 105px;
+}
+.green{width: 603px;height: 10px;background-color: #96d778;clear: both;}
+.request{width: 662px;height: 114px;border: 1px solid #98cbe0;border-radius: 20px;margin-top: 78px;margin-left: 26px;display: flex;flex-wrap: wrap;justify-content: center;align-content: center;gap: 19px;}
+.alarm{width: 60px;height: 60px;}
+.alarm > img{
+
+width: 100%;
+
+height: 100%;
+}
+.alarm > input{
+
+width: 19px;
+
+height: 19px;
+
+border-radius: 100px;
+
+background-color: #f05837;
+
+margin-top: -102px;
+
+margin-left: 30px;
+
+color: white;
+
+padding-top: -3px;
+
+font-size: 12px;
+}
+.request > span {
+
+font-style: normal;
+
+font-weight: 600;
+
+font-size: 32px;
+
+display: inline-block;
+
+float: right;
+
+margin-top: 4px;
+}
+.application{width: 631px;height: 783px;margin-left: 40px;margin-top: 65px;}
+.appTitle{
+  
+font-style: normal;
+  
+font-weight: 700;
+  
+font-size: 36px;
+  
+line-height: 44px;
+}
+.appContent{
+  
+width: 100%;
+  
+height: 716.9px;
+  
+border: 1px solid #d8e4e9;
+  
+border-radius: 20px;
+margin-top: 29px;
+overflow: auto;
+}
+.appInfo{
+  
+  width: 608px;
+  
+  height: 143px;
+  
+  border-bottom: 1px solid #d8e4e9;
+  
+  margin-left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+}
+.appUser{
+  
+}
+.appUser > p{
+
+font-style: normal;
+
+font-weight: 700;
+
+font-size: 26px;
+
+line-height: 120%;
+}
+.appInfo > ul {
+
+display: flex;
+
+justify-content: flex-end;
+
+flex-wrap: wrap;
+
+gap: 29px;
+
+margin-top: 13px;
+
+margin-right: 22px;
+}
+.appInfo > ul > li{
+
+}
+.appInfo > ul > li > button{
+
+width: 77px;
+
+height: 68px;
+
+background-color: #ffeeb0;
+
+border-radius: 5px;
+}
+.appInfo > ul > li > button > img{
+  
+}
