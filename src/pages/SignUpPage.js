@@ -5,7 +5,9 @@ import UserSelectBtn from '../component/common/button/UserSelectBtn';
 import { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import SignBtn from '../component/common/button/SignBtn';
-import { Axios } from '../../node_modules/axios/index';
+import axios, { Axios } from '../../node_modules/axios/index';
+
+const {Tmapv2} = window;
 
 const TOSIN_DATA = [
   { id: null, value: '통신사' },
@@ -66,30 +68,31 @@ const SignUpPage = () => {
   };
 
   const postForm = (e) => {
-    if (e.target.color === 'pink') {
-      Axios.post('/api/v1/senior', registerForm).then((response) => {
-        console.log('성공');
-      });
-    } else if (e.target.color === 'green') {
-      const formData = new FormData();
-      formData.append('files', [
-        registerForm.profileImage,
-        registerForm.certiImage,
-      ]);
-      formData.append(
-        'data',
-        new Blob([JSON.stringify(registerForm)], {
-          type: 'application/json',
-        }),
-      );
-      Axios.post('/api/v1/caregiver', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }).then((response) => {
-        console.log('성공');
-      });
-    }
+    // if (e.target.color === 'pink') {
+    //   Axios.post('/api/v1/senior', registerForm).then((response) => {
+    //     console.log('성공');
+    //   });
+    // } else if (e.target.color === 'green') {
+    //   const formData = new FormData();
+    //   formData.append('files', [
+    //     registerForm.profileImage,
+    //     registerForm.certiImage,
+    //   ]);
+    //   formData.append(
+    //     'data',
+    //     new Blob([JSON.stringify(registerForm)], {
+    //       type: 'application/json',
+    //     }),
+    //   );
+    //   Axios.post('/api/v1/caregiver', formData, {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //   }).then((response) => {
+    //     console.log('성공');
+    //   });
+    // }
+    navigate(`/signup/writeinfo?careno=${1}`)
   };
 
   const seniorCompleteSignup = () => {
@@ -107,7 +110,33 @@ const SignUpPage = () => {
     };
     setForm(newForm);
     setInputZipCodeValue(data.zonecode);
-  }; // onCompletePost 함수
+
+    axios.get("https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result", {
+      "searchKeyword" : data.address,
+      "resCoordType" : "EPSG3857", // 요청 좌표계
+      "reqCoordType" : "WGS84GEO", // 응답 좌표계
+      "count" : 1}, {
+        headers: {
+          'appKey' : "hAeh0XQZwO5CeTusAbw0h8wz6PZeKF3d9ZFlvO18",
+        }
+    })
+      .then((response) => {
+        var resultpoisData = response.searchPoiInfo.pois.poi;
+        for(var k in resultpoisData){
+					
+					var noorLat = Number(resultpoisData[k].noorLat);
+					var noorLon = Number(resultpoisData[k].noorLon);
+					
+					var pointCng = new Tmapv2.Point(noorLon, noorLat);
+					var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
+					
+					var lat = projectionCng._lat;
+					var lon = projectionCng._lng;
+          console.log(lat);
+        }
+        });
+
+  }; // 주소 받아오기
 
   return (
     <Template>

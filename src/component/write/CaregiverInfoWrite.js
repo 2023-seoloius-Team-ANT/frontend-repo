@@ -41,7 +41,7 @@ const CaregiverInfoWrite = (props) => {
   };
 
   const completeModal = () => {
-    Axios.put(`/api/v1/caregiver/${1}`, caregiverInfo).then((response) => {
+    Axios.put(`/api/v1/caregiver/${props.careno}`, caregiverInfo).then((response) => {
       console.log('성공');
       props.opencompleteModal();
     });
@@ -106,6 +106,7 @@ const CaregiverInfoWrite = (props) => {
               name="workday"
               value={caregiverInfo.workday}
               onChange={handleWorkdayChange}
+              placeholder={1}
             />
             일
           </div>
