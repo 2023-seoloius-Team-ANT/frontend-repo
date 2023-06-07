@@ -30,7 +30,7 @@ const Reservconfirm = () => {
   return (
     <>
       <div className="alarm">
-        <img src="images/cal.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/cal.png" }alt="" />
       </div>
       <span>
         {acceptList[currentMonth - 1].name === "" ? (

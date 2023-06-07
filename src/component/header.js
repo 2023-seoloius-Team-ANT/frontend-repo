@@ -22,8 +22,8 @@ const Header = ()=>{
       <button className="mypage">마이페이지</button>
     </div>
     <div className="treefox">
-      <img className="fox" src="images/fox 1.png" alt=""/>
-      <img className="tree" src="images/tree.png" alt=""/>
+      <img className="fox" src={process.env.PUBLIC_URL + "/images/fox 1.png" }alt=""/>
+      <img className="tree" src={process.env.PUBLIC_URL + "/images/tree.png" }alt=""/>
     </div>
     <div className="green"></div>
   </div>

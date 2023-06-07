@@ -7,16 +7,16 @@ let Top = ()=>{
   return(
     <div>
     <header className="header">
-    <img className="logo" src="images/antlogo.png" alt=""/>
+    <img className="logo" src={process.env.PUBLIC_URL + "/images/antlogo.png"} alt=""/>
     {
-      location.pathname === '/cal' ? (
-        <button onClick={()=>{navigate('/')}}>
-          <img src="images/house.png" alt=""/>
+      location.pathname === '/caregivermain/cal' ? (
+        <button onClick={()=>{navigate('/caregivermain')}}>
+          <img src={process.env.PUBLIC_URL + "/images/house.png"} alt=""/>
         </button>
       )
     : (
-          <button onClick={()=>{navigate('/cal')}}>
-            <img src="images/calender.png" alt=""/>
+          <button onClick={()=>{navigate('/caregivermain/cal')}}>
+            <img src={process.env.PUBLIC_URL + "/images/calender.png"} alt=""/>
           </button>
       )
     }

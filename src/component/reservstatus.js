@@ -47,7 +47,7 @@ let ReservStatus = () => {
         <div className="rsheader">
           <div className="rstitle">
             <button className="rsbtn">
-              <img src="/images/reserv.png" alt="" />
+              <img src={process.env.PUBLIC_URL + "/images/reserv.png"} alt="" />
               <span>예약현황</span>
             </button>
           </div>

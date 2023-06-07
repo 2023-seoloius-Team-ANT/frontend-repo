@@ -62,7 +62,7 @@ let Location = () => {
     <div>
       <div className="location">
         <div className="lTitle">
-          <img src="images/nav.png" alt=""/>
+          <img src={process.env.PUBLIC_URL + "/images/nav.png"} alt=""/>
           <p>위치: {seniorinfo.address}</p>
         </div>
         <div className="map">
@@ -72,7 +72,7 @@ let Location = () => {
         </div>
       </div>
       <div className="home">
-        <input onClick={()=>{navigate('/')}} type="button" name="" value="목록으로" />
+        <input onClick={()=>{navigate('/caregivermain')}} type="button" name="" value="목록으로" />
       </div>
     </div>
   );

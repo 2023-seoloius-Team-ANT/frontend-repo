@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
   return(
        <>
         <div className="alarm">
-          <img src="images/종.png" alt=""/>
+          <img src={process.env.PUBLIC_URL + "/images/종.png"} alt=""/>
           
         </div>
         <span>총 {reqcnt}건의 예약 요청이 들어왔습니다.</span>

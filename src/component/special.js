@@ -16,20 +16,20 @@ let Special = ()=>{
   <div className="special">
       <div className="sBtn">
         <button>
-          <img src="images/느낌표.png" alt=""/>
+          <img src={process.env.PUBLIC_URL + "/images/느낌표.png" }alt=""/>
         </button>
         <p>특이사항</p>
       </div>
       <div className="sList">
-        <img src="images/check-mark 8.png" alt=""/>
+        <img src={process.env.PUBLIC_URL + "/images/check-mark 8.png"} alt=""/>
         <p>{seniorinfo.spec1}</p>
       </div>
       <div className="sList">
-        <img src="images/check-mark 8.png" alt=""/>
+        <img src={process.env.PUBLIC_URL + "/images/check-mark 8.png"} alt=""/>
         <p>{seniorinfo.spec2}</p>
       </div>
       <div className="sList">
-        <img src="images/check-mark 8.png" alt=""/>
+        <img src={process.env.PUBLIC_URL + "/images/check-mark 8.png"} alt=""/>
         <p>{seniorinfo.spec3}</p>
       </div>
     </div>

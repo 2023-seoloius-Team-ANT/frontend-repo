@@ -44,7 +44,11 @@ const LoginPage = () => {
     }).then((response) => {
       console.log('성공');
       localStorage.setItem('user', response.data.result);
-      navigate("/")
+      if(userType){
+        navigate("/");
+      } else{
+        navigate("/caregivermain");
+      }
     });
   };
   //링크 이동 함수
