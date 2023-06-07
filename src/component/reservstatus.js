@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import axios from "../../node_modules/axios/index";
 
 let ReservStatus = () => {
-  let [month, setMonth] = useState(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',]);
+  const [acceptList, setAcceptList] = useState(Array.from({ length: 12 }, (_, i) => ({
+    name: "",
+    age: null,
+    gender: "",
+    month: i+1
+  })));
+  
   const [startYear, setStartYear] = useState(null);
   const [endYear, setEndYear] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
@@ -13,7 +20,26 @@ let ReservStatus = () => {
     setStartYear(start);
     setEndYear(end);
     setSelectedYear(currentYear);
+
+    axios.get("/api/v1/connect/confirm/1/2023",{ withCredentials: true, }).then((response)=>{
+      if(response.data){
+        console.log(response.data);
+        const newAcceptList = [...acceptList];
+
+        response.data.result.map((data, i) => {
+          newAcceptList.map((accept, idx) => {
+            if (accept.month == data.month) {
+              newAcceptList[idx] = {...data}
+            }
+          })
+        });
+
+        setAcceptList(newAcceptList)
+      }
+    });
   }, []);
+
+  useEffect(() => {console.log(acceptList)},[acceptList])
 
   return (
     <>
@@ -42,17 +68,22 @@ let ReservStatus = () => {
           </div>
         </div>
         <div className="rscontent">
-          {month.map(function (a, i) {
+          {acceptList.map(function (accept, i) {
             return (
               <div className="rsinfo" key={i}>
                 <div className="rsmonth">
-                  <p>{month[i]} 월</p>
+                  <p>{accept.month} 월</p>
                 </div>
                 <div className="rsuser">
-                  <p>이름:??? | 나이:??세 | 성별:?</p>
+                {accept.age !== null ?(
+                  <p>이름: {accept.name} | 나이:{accept.age}세 | 성별:{accept.gender}</p>
+                ):(
+                  <p>예약없음</p>
+                )}
                 </div>
               </div>
-            )
+              )
+           
           })}
         </div>
       </div>
