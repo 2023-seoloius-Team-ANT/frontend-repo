@@ -10,15 +10,9 @@ let Location = () => {
         setSeniorinfo(response.data.result);
         console.log(seniorinfo.lati)
         console.log(seniorinfo.lon)
-        const lat = response.data.lati;
-        const lon = response.data.lon;
-        initTmap(lat, lon);
       }
     });
-    const initTmap = (lat, lon) => {
     const script = document.createElement("script");
-    script.src="https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=hAeh0XQZwO5CeTusAbw0h8wz6PZeKF3d9ZFlvO18";
-    script.async=true;
     script.innerHTML = `
       function initTmap() {
         const mapDiv = document.getElementById("map_div");
@@ -27,13 +21,13 @@ let Location = () => {
         }
         
         map = new Tmapv3.Map("map_div", {
-          center: new Tmapv3.LatLng(${lat}, ${lon}),
+          center: new Tmapv3.LatLng(${seniorinfo.lati}, ${seniorinfo.lon}),
           width: "100%",   // 지도의 넓이
           height: "400px",   // 지도의 높이
           zoom: 16   // 지도 줌레벨
         });
         var marker = new Tmapv3.Marker({
-          position: new Tmapv3.LatLng(${lat}, ${lon}),   //Marker의 중심좌표 설정.
+          position: new Tmapv3.LatLng(${seniorinfo.lati}, ${seniorinfo.lon}),   //Marker의 중심좌표 설정.
           map: map   //Marker가 표시될 Map 설정..
         });
       }
@@ -43,7 +37,6 @@ let Location = () => {
     script.type = "text/javascript";
     // script.async = "async";
     document.head.appendChild(script);
-    }
   }, []);
 
     const navigate = useNavigate();

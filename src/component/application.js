@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from "axios";
 import { Routes, Route, Link, useNavigate} from 'react-router-dom';
+import Appbtn from './appbtn';
 
 let Application = ()=>{
   let [user, setUser] = useState([]);
-  let navigate = useNavigate();
   useEffect(() => {
     function handleScroll() {
       // 스크롤 이벤트 발생 시 수행할 작업을 여기에 작성합니다.
@@ -42,23 +42,7 @@ let Application = ()=>{
                     <p>나이: {user[i].age}세</p>
                     <p>성별: {user[i].gender}</p>
                   </div>
-                  <ul>
-                    <li>
-                      <button onClick={()=>{navigate('./view')}}>
-                        <img src="images/상세보기.png" alt=""/>
-                      </button>
-                    </li>
-                    <li>
-                      <button>
-                        <img src="images/동그라미.png" alt=""/>
-                      </button>
-                    </li>
-                    <li>
-                      <button>
-                        <img src="images/엑스.png" alt=""/>
-                      </button>
-                    </li>
-                  </ul>
+                  <Appbtn/>
                 </div>
                   
                 ))

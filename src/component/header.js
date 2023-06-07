@@ -2,10 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Header = ()=>{
-  // let [user, setUser] = useState([{}]);
+  // let [user, setUser] = useState({});
   let user = '박상준';
   // useEffect(()=> {
-  //   axios.get("/api/v1/caregiver/1").then((response)=>{
+  //   axios.get("/api/v1/caregiver/1",{ withCredentials: true, }).then((response)=>{
   //     if(response.data){
   //       console.log(response.data);
   //       setUser(response.data.result);

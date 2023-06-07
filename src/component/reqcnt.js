@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
        <>
         <div className="alarm">
           <img src="images/종.png" alt=""/>
-          <input type="button" value="?"/>
+          
         </div>
         <span>총 {reqcnt}건의 예약 요청이 들어왔습니다.</span>
         </>
