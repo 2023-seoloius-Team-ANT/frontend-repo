@@ -4,7 +4,7 @@ import Template from '../component/Template';
 import SignBtn from '../component/common/button/SignBtn';
 import UserSelectBtn from '../component/common/button/UserSelectBtn';
 import './LoginPage.scss';
-import { Axios } from '../../node_modules/axios/index';
+import axios from '../../node_modules/axios/index';
 
 const urlLink = {
   findId: '/',
@@ -17,8 +17,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   //로그인 정보 폼 저장
   const [form, setForm] = useState({
-    userid: '',
-    userpwd: '',
+    id: '',
+    pwd: '',
   });
 
   const onChange = (e) => {
@@ -37,8 +37,14 @@ const LoginPage = () => {
   };
 
   const postForm = () => {
-    Axios.post('/api/v1/login', form).then((response) => {
+    axios.post('/api/v1/login', form, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => {
       console.log('성공');
+      localStorage.setItem('user', response.data.result);
+      navigate("/")
     });
   };
   //링크 이동 함수
@@ -96,7 +102,7 @@ const LoginPage = () => {
       </div>
       <SignBtn
         onClick={postForm}
-        type="button"
+        type={"button"}
         color={userType ? 'pink' : 'green'}
       >
         로그인

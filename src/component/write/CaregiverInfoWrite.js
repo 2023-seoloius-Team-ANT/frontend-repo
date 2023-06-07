@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CaregiverInfoWrite.scss';
 import SignBtn from '../common/button/SignBtn';
-import { Axios } from '../../../node_modules/axios/index';
+import axios from '../../../node_modules/axios/index';
 
 const CaregiverInfoWrite = (props) => {
   // 여기에 url정보 빼오자 회원번호
@@ -23,7 +23,7 @@ const CaregiverInfoWrite = (props) => {
   const handleWorkdayChange = (e) => {
     const newValue = parseInt(e.target.value);
     if (newValue >= 1 && newValue <= 7) {
-      setCaregiverInfo({ ...caregiverInfo, [e.target.name]: newValue });
+      setCaregiverInfo({ ...caregiverInfo, [e.target.name]: e.target.value });
     } else if (isNaN(newValue)) {
       setCaregiverInfo({ ...caregiverInfo, [e.target.name]: '' });
     } else {
@@ -41,14 +41,18 @@ const CaregiverInfoWrite = (props) => {
   };
 
   const completeModal = () => {
-    Axios.put(`/api/v1/caregiver/${props.careno}`, caregiverInfo).then((response) => {
-      console.log('성공');
+    axios.put(`/api/v1/caregiver/${props.careno}`, caregiverInfo, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => {
       props.opencompleteModal();
     });
   };
 
   return (
     <div className="caregiverInfoTemplate">
+      
       <div className="infoWriteArea">
         <div className="infoGuide">
           <div className="infoMenu">내 키워드</div>

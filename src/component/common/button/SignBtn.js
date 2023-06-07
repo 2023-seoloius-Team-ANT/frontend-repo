@@ -21,7 +21,7 @@ const StyledBtn = styled.button`
 `;
 
 const SignBtn = (props) => (
-  <StyledBtn onClick={props.onClick} type={props.type} {...props} />
+  <StyledBtn onClick={props.onClick} type={props.type} color={props.color} {...props} />
 );
 
 export default SignBtn;

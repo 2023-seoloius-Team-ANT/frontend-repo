@@ -5,9 +5,7 @@ import UserSelectBtn from '../component/common/button/UserSelectBtn';
 import { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import SignBtn from '../component/common/button/SignBtn';
-import axios, { Axios } from '../../node_modules/axios/index';
-
-const {Tmapv2} = window;
+import axios from '../../node_modules/axios/index';
 
 const TOSIN_DATA = [
   { id: null, value: '통신사' },
@@ -60,6 +58,7 @@ const SignUpPage = () => {
     setForm(nextForm);
   };
   const formChange = (e) => {
+    
     const nextForm = {
       ...registerForm,
       [e.target.name]: e.target.value,
@@ -67,84 +66,70 @@ const SignUpPage = () => {
     setForm(nextForm);
   };
 
-  const postForm = (e) => {
-    // if (e.target.color === 'pink') {
-    //   Axios.post('/api/v1/senior', registerForm).then((response) => {
-    //     console.log('성공');
-    //   });
-    // } else if (e.target.color === 'green') {
-    //   const formData = new FormData();
-    //   formData.append('files', [
-    //     registerForm.profileImage,
-    //     registerForm.certiImage,
-    //   ]);
-    //   formData.append(
-    //     'data',
-    //     new Blob([JSON.stringify(registerForm)], {
-    //       type: 'application/json',
-    //     }),
-    //   );
-    //   Axios.post('/api/v1/caregiver', formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   }).then((response) => {
-    //     console.log('성공');
-    //   });
-    // }
-    navigate(`/signup/writeinfo?careno=${1}`)
+  const postForm = () => {
+    if (user === 'senior') {
+      axios.post('/api/v1/senior', registerForm).then((response) => {
+        seniorCompleteSignup();
+      }).catch((error) => {
+        alert("오류로 인해 회원가입 실패하였습니다.");
+        navigate(1);
+      });
+    } else if (user === 'caregiver') {
+      const formData = new FormData();
+      for(let key in registerForm){
+        formData.append(key, registerForm[key]);
+      }
+      console.log(formData);
+      axios.post('/api/v1/caregiver', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }).then((response) => {
+        careCompleteSignup(response.data.result.careno)
+      }).catch((error) => {
+        alert("오류로 인해 회원가입 실패하였습니다.");
+        navigate(1);
+      });
+    }
   };
 
   const seniorCompleteSignup = () => {
     navigate('/');
   };
-  const careCompleteSignup = () => {
-    navigate('/signup/writeinfo');
+  const careCompleteSignup = (careno) => {
+    navigate(`/signup/writeinfo?careno=${careno}`);
   };
 
   const onCompletePost = (data) => {
     setModalState(false);
-    const newForm = {
-      ...registerForm,
-      address: data.address,
-    };
-    setForm(newForm);
+    // const newForm = {
+    //   ...registerForm,
+    //   address: data.address,
+    // };
+    // setForm(newForm);
     setInputZipCodeValue(data.zonecode);
-
-    axios.get("https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result", {
-      "searchKeyword" : data.address,
-      "resCoordType" : "EPSG3857", // 요청 좌표계
-      "reqCoordType" : "WGS84GEO", // 응답 좌표계
-      "count" : 1}, {
-        headers: {
-          'appKey' : "hAeh0XQZwO5CeTusAbw0h8wz6PZeKF3d9ZFlvO18",
-        }
-    })
-      .then((response) => {
-        var resultpoisData = response.searchPoiInfo.pois.poi;
-        for(var k in resultpoisData){
-					
-					var noorLat = Number(resultpoisData[k].noorLat);
-					var noorLon = Number(resultpoisData[k].noorLon);
-					
-					var pointCng = new Tmapv2.Point(noorLon, noorLat);
-					var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
-					
-					var lat = projectionCng._lat;
-					var lon = projectionCng._lng;
-          console.log(lat);
-        }
-        });
-
+    changeLonLat(data.address)
+    
   }; // 주소 받아오기
 
+  const changeLonLat = (location) => {
+    
+    axios.get(`https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result&count=1&resCoordType=EPSG3857&reqCoordType=WGS84GEO&appKey=Bf69bciABC95oILSnW7Ot7WQIx2yL2iFri7gSmg1&searchKeyword=${location}`)
+      .then((response) => {
+				var lat = response.data.searchPoiInfo.pois.poi[0].frontLat;
+				var lon = response.data.searchPoiInfo.pois.poi[0].frontLon;
+        const nextForm = {
+          ...registerForm,
+          address: location,
+          lati : lat,
+          lon : lon,
+        };
+        setForm(nextForm);
+        });
+  }
   return (
     <Template>
-      <form
-        encType="multipart/form-data"
-        method="post"
-        action={color === 'pink' ? '/api/v1/senior' : '/api/v1/caregiver'}
-      >
+      
         <div className="signTitle">회원가입</div>
         <div className={`${color} signupArea`} id="accountForm">
           <div className="inputTemplate">
@@ -325,6 +310,7 @@ const SignUpPage = () => {
             placeholder="주소"
             className="addressSetInput"
             name="address"
+            
           />
           <input
             type="text"
@@ -402,14 +388,14 @@ const SignUpPage = () => {
                 id="inputImg"
               />
               <div className="CustomAreaTitle">프로필 사진</div>
-              <label htmlFor="certificateUpload">업로드</label>
+              <label htmlFor="profileUpload">업로드</label>
             </div>
             <div className="inputTemplate">
               <input
                 type="file"
                 name="profileImage"
                 onChange={fileChange}
-                id="certificateUpload"
+                id="profileUpload"
               />
             </div>
             <div className="hLine" id={color} />
@@ -420,10 +406,9 @@ const SignUpPage = () => {
             </div>
           </div>
         )}
-        <SignBtn type="submit" color={color} onClick={postForm}>
+        <SignBtn type={"button"} color={color} onClick={postForm}>
           회원가입
         </SignBtn>
-      </form>
     </Template>
   );
 };
