@@ -3,15 +3,27 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 let Location = () => {
   const [seniorinfo, setSeniorinfo] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
-    axios.get("/api/v1/senior/1",{ withCredentials: true, }).then((response)=>{
-      if(response.data){
-        console.log(response.data);
-        setSeniorinfo(response.data.result);
-        console.log(seniorinfo.lati)
-        console.log(seniorinfo.lon)
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/v1/senior/1", { withCredentials: true });
+        if (response.data) {
+          console.log(response.data);
+          setSeniorinfo(response.data.result);
+          console.log(seniorinfo.lati);
+          console.log(seniorinfo.lon);
+         
+        }
+      } catch (error) {
+        console.error(error);
       }
-    });
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
     const script = document.createElement("script");
     script.innerHTML = `
       function initTmap() {
@@ -35,11 +47,16 @@ let Location = () => {
       initTmap();
     `;
     script.type = "text/javascript";
-    // script.async = "async";
+    script.async = "async";
     document.head.appendChild(script);
-  }, []);
 
-    const navigate = useNavigate();
+    return () => {
+      // 컴포넌트 언마운트 시 스크립트 제거
+      document.head.removeChild(script);
+    };
+  }, [seniorinfo.lati, seniorinfo.lon]);
+
+    
 
   return (
     <div>

@@ -36,7 +36,7 @@ let Application = ()=>{
               {
                 user.map((a,i)=>(
                  
-                    <div className="appInfo">
+                    <div className="appInfo" key={i}>
                   <div className="appUser">
                     <p>이름: {user[i].name}</p>
                     <p>나이: {user[i].age}세</p>
