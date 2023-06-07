@@ -80,6 +80,7 @@ let ReservStatus = () => {
                 ):(
                   <p>예약없음</p>
                 )}
+                
                 </div>
               </div>
               )
