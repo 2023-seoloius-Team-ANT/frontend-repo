@@ -21,9 +21,11 @@ const Header = ()=>{
       <p>어서오세요.</p>
       <button className="mypage">마이페이지</button>
     </div>
-    <div className="treefox">
-      <img className="fox" src={process.env.PUBLIC_URL + "/images/fox 1.png" }alt=""/>
-      <img className="tree" src={process.env.PUBLIC_URL + "/images/tree.png" }alt=""/>
+    <div className="fox">
+      <img  src={process.env.PUBLIC_URL + "/images/fox 1.png" }alt=""/>
+    </div>
+    <div className="tree">
+      <img src={process.env.PUBLIC_URL + "/images/tree.png" }alt=""/>
     </div>
     <div className="green"></div>
   </div>

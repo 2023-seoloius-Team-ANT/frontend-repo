@@ -1,5 +1,5 @@
 import './user.css';
-import './reset.css';
+// import './reset.css';
 import Header from '../component/header.js'
 import Application from '../component/application.js'
 import Request from '../component/request.js'
