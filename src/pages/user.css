@@ -54,7 +54,7 @@ display: inline-block;
 
 margin-top: 105px;
 }
-.green{width: 603px;height: 10px;background-color: #96d778;clear: both;}
+.info > .green{width: 603px;height: 10px;background-color: #96d778;clear: both;}
 .request{width: 662px;height: 114px;border: 1px solid #98cbe0;border-radius: 20px;margin-top: 78px;margin-left: 26px;display: flex;flex-wrap: wrap;justify-content: center;align-content: center;gap: 19px;}
 .alarm{width: 60px;height: 60px;}
 .alarm > img{
