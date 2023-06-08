@@ -1,31 +1,37 @@
 
 
 #loginArea {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  height: 220px;
+  height: 120px;
+  width: 95%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
+  border-radius: 8px;
   &.seniorColor{
-    border: 5px solid #ed174f;
+    border: 3px solid #ed174f;
   }
   &.careColor{
-    border: 5px solid #55B682;
+    border: 3px solid #55B682;
   }
 }
 //요양사나 노인 선택
 #UserSelectBtns {
-  height: 50px;
-  margin-top: 15px;
+  width: 95%;
+  height: 40px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-around;
 
+}
+#signinGo{
+  display: flex;
+  justify-content: center;
 }
 //로그인 입력 부분
 #loginArea > input[type='text'], #loginArea >input[type='password']  {
   border: none;
   background: transparent;
-  height: 80px;
+  height: 40px;
   width: 100%;
   padding-left: 10px;
 
@@ -33,7 +39,7 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 17px;
   line-height: 44px;
   &.seniorColor{
     border-bottom: 1px solid #ed174f;
@@ -44,8 +50,8 @@
 }
 
 #loginCheckbox {
-  padding-left: 10px;
-  height: 20%;
+  padding-left: 5px;
+  height: 30px;
   display: flex;
   align-items: center;
   padding-top: 3px;
@@ -54,16 +60,16 @@
   font-family: 'Inter';
   font-style: Bold;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 44px;
+  font-size: 11px;
+  line-height: 70px;
   letter-spacing: 0.1em;
 }
 
 // 로그인 하단 3인방
 #userLoginAction{
-  height: 90px;
+  height: 50px;
   display: flex;
-  width: 340px;
+  width: 290px;
   justify-content: space-evenly;
   align-items: center;
   

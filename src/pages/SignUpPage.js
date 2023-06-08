@@ -100,6 +100,7 @@ const SignUpPage = () => {
     navigate(`/signup/writeinfo?careno=${careno}`);
   };
 
+  
   const onCompletePost = (data) => {
     setModalState(false);
     // const newForm = {
@@ -284,12 +285,12 @@ const SignUpPage = () => {
                 >
                   X
                 </button>
-                <DaumPostcode onComplete={onCompletePost}></DaumPostcode>
+                <DaumPostcode onComplete ={onCompletePost}></DaumPostcode>
               </div>
             </div>
           )}
           <div className="signTitle add">주소</div>
-          <div className="zipcodeFrom">
+          <div className="zipcodeForm">
             <input
               type="text"
               defaultValue={inputZipCodeValue}
@@ -406,9 +407,11 @@ const SignUpPage = () => {
             </div>
           </div>
         )}
+        <div id='signupGo'>
         <SignBtn type={"button"} color={color} onClick={postForm}>
           회원가입
         </SignBtn>
+        </div>
     </Template>
   );
 };

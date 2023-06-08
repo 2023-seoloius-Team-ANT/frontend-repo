@@ -43,7 +43,7 @@ const CaregiverInfoWrite = (props) => {
   const completeModal = () => {
     axios.put(`/api/v1/caregiver/${props.careno}`, caregiverInfo, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
       },
     }).then((response) => {
       props.opencompleteModal();
@@ -57,7 +57,7 @@ const CaregiverInfoWrite = (props) => {
         <div className="infoGuide">
           <div className="infoMenu">내 키워드</div>
           <div className="infoDescript">
-            본인을 대표하는 특징을 소개해주세요.&nbsp;&nbsp; EX {`)`} 열정적인,
+            본인을 대표하는 특징을 소개해주세요.<br/> EX {`)`} 열정적인,
             꼼꼼한
           </div>
         </div>
