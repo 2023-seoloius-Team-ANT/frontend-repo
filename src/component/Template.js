@@ -25,14 +25,14 @@ const Template = ({ children }) => {
 
   return (
     <div className="Template">
-      <div className="header">
+      <div className="mainHeader">
         <img
           src={process.env.PUBLIC_URL + '/images/home.png'}
           alt=""
           id="home"
           onClick={() => navigate('/')}
         />
-        <div className="logo">
+        <div className="mainlogo">
           <img
             src={process.env.PUBLIC_URL + '/images/heart.png'}
             alt=""
