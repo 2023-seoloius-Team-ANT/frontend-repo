@@ -72,7 +72,7 @@ let ReservStatus = () => {
             return (
               <div className="rsinfo" key={i}>
                 <div className="rsmonth">
-                  <p>{accept.month} 월</p>
+                  <p>{accept.month}월</p>
                 </div>
                 <div className="rsuser">
                 {accept.age !== null ?(
