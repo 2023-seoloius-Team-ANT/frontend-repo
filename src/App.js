@@ -1,7 +1,7 @@
-import FindHelperPage from "./pages/FindHelper/FindHelperPage";
-import HelperDetailProfilePage from "./pages/HelperDetailProfile/HelperDetailProfilePage";
-import HelperProfilePage from "./pages/HelperProfile/HelperProfilePage";
-import { Route, Routes } from "react-router-dom";
+import FindHelperPage from './pages/FindHelper/FindHelperPage';
+import HelperDetailProfilePage from './pages/HelperDetailProfile/HelperDetailProfilePage';
+import HelperProfilePage from './pages/HelperProfile/HelperProfilePage';
+import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <Routes>
