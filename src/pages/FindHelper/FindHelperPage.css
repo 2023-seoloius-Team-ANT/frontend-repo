@@ -1,0 +1,13 @@
+.fhWrapper {
+  /* display: flex; */
+  width: 95%;
+  height: 100vh;
+}
+
+.GuideWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 24vh;
+  justify-content: space-evenly;
+}
