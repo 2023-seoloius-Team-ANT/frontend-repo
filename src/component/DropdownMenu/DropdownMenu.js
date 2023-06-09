@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./DropdowMenu.scss";
 
 // 드롭다운 컴포넌트
 const DropdowMenu = ({ options, onSelect }) => {
@@ -19,14 +18,15 @@ const DropdowMenu = ({ options, onSelect }) => {
       value={isOpen}
       onChange={ddmChange}
       style={{
-        width: "292px",
-        height: "81px",
-        paddingleft: "24px",
-        fontfamily: "Inter",
-        fontstyle: "normal",
-        fontweight: "400",
-        fontsize: "40px",
-        lineheight: "48px",
+        width: "150px",
+        height: "50px",
+        paddingLeft: "15px",
+        fontFamily: "Inter",
+        fontStyle: "normal",
+        fontWeight: "400",
+        fontSize: "24px",
+        lineHeight: "38px",
+        textAlign: "center",
         color: "#000000",
       }}
     >

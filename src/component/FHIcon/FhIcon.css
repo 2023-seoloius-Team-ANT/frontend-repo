@@ -1,22 +1,15 @@
-svg {
-  margin: 1% 1% 1% 0;
-}
-
-span {
+.iconWrapper > span {
   font-family: "Inter";
   font-style: italic;
   font-weight: 800;
-  font-size: 36px;
-  line-height: 44px;
-  /* align-items: center; */
+  font-size: 24px;
+  /* line-height: 50px; */
   color: #000000;
+  vertical-align: text-bottom;
 }
 
 .iconWrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  padding-top: 5%;
 }
-
-/* .text {
-  display: flex;
-} */

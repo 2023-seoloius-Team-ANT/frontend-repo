@@ -1,5 +1,5 @@
 .ddmData {
-  width: 638px;
+  width: 100vw;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -7,7 +7,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 24px;
   line-height: 52px;
 
   color: #000000;
