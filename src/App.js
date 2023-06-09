@@ -1,4 +1,4 @@
-
+import './App.css';
 import User from './pages/User.js'
 import View from './pages/View.js'
 import Cal from './pages/Cal.js'
@@ -20,7 +20,6 @@ const App = () => {
         <Route path='/caregivermain' element={<User/>}/>
         <Route path='/caregivermain/view' element={<View/>}/>
         <Route path='/caregivermain/cal' element={<Cal/>}/>
-
     </Routes>
   );
 };

@@ -1,4 +1,3 @@
-
 import './view.css';
 import Top from '../component/top.js'
 import Detail from '../component/detail.js'

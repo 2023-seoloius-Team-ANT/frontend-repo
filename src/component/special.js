@@ -15,9 +15,9 @@ let Special = ()=>{
     <div>
   <div className="special">
       <div className="sBtn">
-        <button>
+        <div>
           <img src={process.env.PUBLIC_URL + "/images/느낌표.png" }alt=""/>
-        </button>
+        </div>
         <p>특이사항</p>
       </div>
       <div className="sList">

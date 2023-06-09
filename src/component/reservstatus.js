@@ -46,10 +46,10 @@ let ReservStatus = () => {
       <div className="reservStatus">
         <div className="rsheader">
           <div className="rstitle">
-            <button className="rsbtn">
+            <div className="rsbtn">
               <img src={process.env.PUBLIC_URL + "/images/reserv.png"} alt="" />
               <span>예약현황</span>
-            </button>
+            </div>
           </div>
           <div className="yearOption">
             <select
@@ -72,7 +72,7 @@ let ReservStatus = () => {
             return (
               <div className="rsinfo" key={i}>
                 <div className="rsmonth">
-                  <p>{accept.month} 월</p>
+                  <p>{accept.month}월</p>
                 </div>
                 <div className="rsuser">
                 {accept.age !== null ?(
