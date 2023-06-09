@@ -69,6 +69,7 @@ const SignUpPage = () => {
   const postForm = () => {
     if (user === 'senior') {
       axios.post('/api/v1/senior', registerForm).then((response) => {
+        alert("회원가입이 완료되었습니다!")
         seniorCompleteSignup();
       }).catch((error) => {
         alert("오류로 인해 회원가입 실패하였습니다.");
@@ -156,7 +157,7 @@ const SignUpPage = () => {
             />
             <input
               className="signUpInput"
-              type="text"
+              type="password"
               name="pwd"
               onChange={formChange}
               placeholder="비밀번호"
@@ -171,7 +172,7 @@ const SignUpPage = () => {
             />
             <input
               className="signUpInput"
-              type="text"
+              type="password"
               name="pwdCheck"
               // onChange={valueChange}
               placeholder="비밀번호 확인"

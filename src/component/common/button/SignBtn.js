@@ -5,7 +5,7 @@ const StyledBtn = styled.button`
     if (props.color === 'pink') return '#fd3a69';
     else return '#A9D196';
   }};
-  border-radius:5px;
+  border-radius:10px;
   height: 44px;
   width: 95%;
   font-family: 'Inter';
