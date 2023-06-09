@@ -49,7 +49,9 @@ const LoginPage = () => {
       } else{
         navigate("/caregivermain");
       }
-    });
+    }).catch(()=>{
+      alert("로그인에 실패했습니다.")
+  });
   };
   //링크 이동 함수
   const goUrl = (e) => {
@@ -95,8 +97,8 @@ const LoginPage = () => {
           id="loginLine"
           style={
             userType
-              ? { borderTop: '4px solid #ed174f' }
-              : { borderTop: '4px solid #55B682' }
+              ? { borderTop: '2px solid #ed174f' }
+              : { borderTop: '2px solid #55B682' }
           }
         />
         <div id="loginCheckbox">
@@ -104,6 +106,7 @@ const LoginPage = () => {
           로그인 상태 유지
         </div>
       </div>
+      <div id='signinGo'>
       <SignBtn
         onClick={postForm}
         type={"button"}
@@ -111,6 +114,7 @@ const LoginPage = () => {
       >
         로그인
       </SignBtn>
+      </div>
       <div id="userLoginAction">
         <div className="userActionBtns" id="findId" onClick={goUrl}>
           아이디 찾기
@@ -121,7 +125,7 @@ const LoginPage = () => {
         </div>
         <span className="vLine" />
         <div className="userActionBtns" id="signUp" onClick={goUrl}>
-          회원가입
+          회원가입 &nbsp;&nbsp;&nbsp;
         </div>
       </div>
     </Template>

@@ -5,13 +5,13 @@ const StyledBtn = styled.button`
     if (props.color === 'pink') return '#fd3a69';
     else return '#A9D196';
   }};
-  border-radius: 10px;
-  height: 50px;
-  width: 100%;
+  border-radius:10px;
+  height: 44px;
+  width: 95%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 20px;
   text-align: center;
   letter-spacing: 0.05em;

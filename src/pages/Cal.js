@@ -1,5 +1,4 @@
 import './cal.css';
-// import './reset.css';
 import Header from '../component/header.js'
 import ReservStatus from '../component/reservstatus.js'
 import Reserv from '../component/reserv.js'
