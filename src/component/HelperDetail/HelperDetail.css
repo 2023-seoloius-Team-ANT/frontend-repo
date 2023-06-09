@@ -1,0 +1,19 @@
+.HelperDetailWrapper {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+.HelperProfileWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 95%;
+  height: 45vh;
+  border-bottom: 3px solid #808080;
+  background-color: #fff;
+  margin-left: 1%;
+}
+
+.HelperProfileWrapper > .HelperProfGrid1 > div > .HelperProfCon {
+  margin-left: 10%;
+}

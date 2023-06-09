@@ -1,0 +1,11 @@
+.helperPfWrapper {
+  width: 95vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AMBtnWrapper {
+  height: 100px;
+}
