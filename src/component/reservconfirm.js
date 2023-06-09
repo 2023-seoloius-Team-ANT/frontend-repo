@@ -10,7 +10,7 @@ const Reservconfirm = () => {
   })));
 
   useEffect(() => {
-    axios.get("/api/v1/connect/confirm/1/2023", { withCredentials: true }).then((response) => {
+    axios.get(`/api/v1/connect/confirm/${JSON.parse(localStorage.getItem('user')).numberPk}/2023`, { withCredentials: true }).then((response) => {
       if (response.data) {
         console.log(response.data);
         const newAcceptList = [...acceptList];
