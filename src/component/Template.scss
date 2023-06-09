@@ -1,0 +1,73 @@
+.Template {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+   .BannerText{
+    width: 100%;
+  }
+}
+.Template > div {
+  margin-left: auto;
+  margin-right: auto;
+}
+.Template > .mainHeader {
+  padding-top: 10px;
+  border-bottom: 1.5px solid #000000;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+}
+#headerBtn {
+  background-color: #455a64;
+  border-radius: 10px;
+  height: 30px;
+  width: 75px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  border: none;
+}
+#home {
+  width: 20px;
+  height: 20px;
+}
+
+#heart {
+  width: 13px;
+  height: 13px;
+}
+
+.mainlogo {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 35px;
+  margin-right: 0%;
+  position: relative;
+}
+#heart {
+  position: absolute;
+  top: 0;
+  left: -10px;
+}
+
+/* font */
+.mainlogo > span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 35px;
+}
+
+// input[type='checkbox'] {
+//   border-radius: 7px;
+//   width: 25px; /*Desired width*/
+
+//   height: 25px; /*Desired height*/
+  cursor: pointer;
+}

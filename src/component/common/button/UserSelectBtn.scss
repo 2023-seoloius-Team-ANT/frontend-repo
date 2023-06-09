@@ -1,0 +1,41 @@
+.DisabledBtn{
+    background: #f1f1f1;
+    color: rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    border-radius: 11px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-align: center;
+    width: 48%;
+    height: 100%;
+    border: 3px solid #939EA2;
+}
+.AbledBtn{
+    background: #ffffff;
+    box-sizing: border-box;
+    border-radius: 11px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-align: center;
+    width: 48%;
+    height: 100%;
+    border: none;
+
+    
+    &#pinkBtn{
+        border: 3px solid #fd3a69;
+    }
+    &#greenBtn{
+        border: 3px solid #2EA45F;
+    }
+}

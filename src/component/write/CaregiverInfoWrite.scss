@@ -1,0 +1,121 @@
+.caregiverInfoTemplate * {
+  font-family: 'Inter';
+  font-style: normal;
+}
+.infoWriteArea {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: 3px solid #a9d196;
+  padding-top: 20px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 20px;
+}
+.infoWriteArea .infoGuide {
+  display: flex;
+  align-items: center;
+}
+.infoWriteArea .infoMenu {
+  background-color: #a9d196;
+  border-radius: 10px;
+  width: 110px;
+  height: 37px;
+  
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 37px;
+  text-align: center;
+}
+.infoWriteArea .infoDescript {
+  margin-left: 10px;
+  width: 230px;
+
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+//keyword
+#careKeyword {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#careKeyword > div {
+  width: 95px;
+  height: 35px;
+  padding-left: 19px;
+  display: flex;
+  align-items: center;
+
+  border-radius: 14px;
+  background-color: #223047;
+  color: #fecd1a;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+}
+#careKeyword > div > .keywordInput {
+  border: none;
+  background-color: #223047;
+  width: 50px;
+  color: #fecd1a;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+
+  &::placeholder {
+    color: #fecd1a;
+  }
+}
+
+//근무일정
+#careSchedule > div,
+#careSchedule > input {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 14px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+#careSchedule input[type='number'] {
+  margin-left: 10px;
+  margin-right: 3px;
+  height: 35px;
+  width: 50px;
+  
+  border: 2px solid #000000;
+  text-align: end;
+  &::placeholder {
+    font-size: 15px;
+  }
+}
+#careSchedule input[type='text'] {
+  height: 45px;
+  width: 95%;
+
+  border: 2px solid #000000;
+  &::placeholder {
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+//questions
+.infoWriteArea > .questionBox {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  height: 200px;
+  margin-top: 15px;
+  border: 2px solid #000000;
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
