@@ -3,7 +3,7 @@ import './MainFunction.scss';
 import { useNavigate } from 'react-router-dom';
 const typeMap = {
   care: '원하는 요양사를 찾아보세요.',
-  location: '가고싶은 장소를 안내해 드려요.',
+  location: '근처 시설을 안내해 드려요.',
 };
 const styleMap = {
   care: 'care',
