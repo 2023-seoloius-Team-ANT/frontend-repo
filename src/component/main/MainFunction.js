@@ -1,9 +1,9 @@
-
 import './MainFunction.scss';
 
+import { useNavigate } from 'react-router-dom';
 const typeMap = {
   care: '원하는 요양사를 찾아보세요.',
-  location: '가고싶은 장소를 안내해 드려요.',
+  location: '근처 시설을 안내해 드려요.',
 };
 const styleMap = {
   care: 'care',
@@ -11,10 +11,17 @@ const styleMap = {
 };
 
 const MainFunction = ({ type }) => {
+  const navigate = useNavigate();
   const text = typeMap[type];
   const styleType = styleMap[type];
+  const functionGo = () => {
+    if (type === 'care') {
+      localStorage.length === 0 ? alert("로그인 후 이용해주세요") : navigate('/findHelper')
+    }
+  };
+
   return (
-    <div id="mainfunction">
+    <div id="mainfunction" onClick={functionGo}>
       <div id="info">
         <div id="infoText">{text}</div>
         <img src={'images/audioplay.png'} alt="" id="audioimg" />

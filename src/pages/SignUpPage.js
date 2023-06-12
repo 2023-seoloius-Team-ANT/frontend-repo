@@ -104,16 +104,12 @@ const SignUpPage = () => {
   
   const onCompletePost = (data) => {
     setModalState(false);
-    // const newForm = {
-    //   ...registerForm,
-    //   address: data.address,
-    // };
-    // setForm(newForm);
     setInputZipCodeValue(data.zonecode);
     changeLonLat(data.address)
     
   }; // 주소 받아오기
 
+//위도경도
   const changeLonLat = (location) => {
     
     axios.get(`https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result&count=1&resCoordType=EPSG3857&reqCoordType=WGS84GEO&appKey=Bf69bciABC95oILSnW7Ot7WQIx2yL2iFri7gSmg1&searchKeyword=${location}`)
