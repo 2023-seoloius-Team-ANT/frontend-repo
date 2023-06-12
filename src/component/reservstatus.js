@@ -15,13 +15,13 @@ let ReservStatus = () => {
 
   useEffect(() => {
     const currentYear = new Date().getFullYear();
-    const start = currentYear - 50;
-    const end = currentYear;
+    const start = currentYear - 30;
+    const end = currentYear + 10;
     setStartYear(start);
     setEndYear(end);
     setSelectedYear(currentYear);
 
-    axios.get("/api/v1/connect/confirm/1/2023",{ withCredentials: true, }).then((response)=>{
+    axios.get(`/api/v1/connect/confirm/${JSON.parse(localStorage.getItem('user')).numberPk}/2023`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
         console.log(response.data);
         const newAcceptList = [...acceptList];

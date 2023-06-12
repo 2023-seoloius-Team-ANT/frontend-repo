@@ -6,7 +6,7 @@ const NoticeModal = () => {
   const navigate = useNavigate();
   // 모달 끄기
   useEffect(() => {
-    const timer = setTimeout(() => navigate('/'), 5000);
+    const timer = setTimeout(() => navigate('/'), 3000);
     return () => clearTimeout(timer);
     //아래 문구는 경고어 사라지게 하는거
     // eslint-disable-next-line react-hooks/exhaustive-deps

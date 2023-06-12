@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "../../node_modules/react-router-dom/dist/index"
 import axios from "../../node_modules/axios/index";
-const Appbtn=()=>{
+const Appbtn=(props)=>{
   const navigate = useNavigate();
   const [accept, setAccept] = useState();
   const [decline, setDecline] = useState();
   useEffect(()=> {
-    axios.put("/api/v1/connect/1/accept",{ withCredentials: true, }).then((response)=>{
+    axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
         console.log(response.data);
         setAccept(response.data.result);
       }
     });
-    axios.put("/api/v1/connect/1/decline",{ withCredentials: true, }).then((response)=>{
+    axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
         console.log(response.data);
         setDecline(response.data.result);
@@ -22,7 +22,7 @@ const Appbtn=()=>{
   return(
     <ul>
       <li>
-        <button onClick={()=>{navigate('./view')}}>
+        <button onClick={()=>{navigate(`./view?seniorno=${props.value}`)}}>
           <img src={process.env.PUBLIC_URL + "/images/상세보기.png"} alt=""/>
         </button>
       </li>

@@ -43,7 +43,7 @@ const LoginPage = () => {
       },
     }).then((response) => {
       console.log('성공');
-      localStorage.setItem('user', response.data.result);
+      localStorage.setItem('user', JSON.stringify(response.data.result));
       if(userType){
         navigate("/");
       } else{
