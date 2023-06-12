@@ -9,7 +9,7 @@ let Top = ()=>{
     <header className="header">
     <img className="logo" src={process.env.PUBLIC_URL + "/images/antlogo.png"} alt=""/>
     {
-      location.pathname === '/caregivermain/cal' || '/caregivermain/caregivermypage'? (
+      location.pathname === '/caregivermain/cal' && '/caregivermain/caregivermypage'? (
         <button onClick={()=>{navigate('/caregivermain')}}>
           <img src={process.env.PUBLIC_URL + "/images/house.png"} alt=""/>
         </button>
