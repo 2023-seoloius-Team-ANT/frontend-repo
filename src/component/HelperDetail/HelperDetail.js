@@ -1,6 +1,6 @@
-import "./HelperDetail.css";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import './HelperDetail.css';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const HelperDetail = (props) => {
   const [caregiverinfo, setCaregiverinfo] = useState([]);
@@ -14,7 +14,7 @@ const HelperDetail = (props) => {
         if (response.data) {
           const result = Object.values(response.data.result);
           setCaregiverinfo([...result, result.length + 1]);
-          console.log(JSON.stringify(caregiverinfo))
+          console.log(JSON.stringify(caregiverinfo));
         }
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ const HelperDetail = (props) => {
         <div className="HelperProfContent">
           <div className="ContentText">
             <span>
-              {caregiverinfo[5]} /{caregiverinfo[8]} 세
+              {caregiverinfo[5]} /{caregiverinfo[9]} 세
             </span>
             <span>근무요일 : 주 {caregiverinfo[7]}일</span>
             <span>근무시간 : {caregiverinfo[6]}</span>
