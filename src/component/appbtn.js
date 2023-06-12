@@ -5,20 +5,22 @@ const Appbtn=(props)=>{
   const navigate = useNavigate();
   const [accept, setAccept] = useState();
   const [decline, setDecline] = useState();
-  useEffect(()=> {
-    axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
+  const handleAcceptClick=()=> {
+    axios.put(`/api/v1/connect/${props.no}/accept`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
         console.log(response.data);
         setAccept(response.data.result);
       }
     });
-    axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
+  };
+  const handleDeclineClick=()=>{
+    axios.put(`/api/v1/connect/${props.no}/decline`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
         console.log(response.data);
         setDecline(response.data.result);
       }
     });
-  },[]);
+  };
   return(
     <ul>
       <li>
@@ -27,12 +29,12 @@ const Appbtn=(props)=>{
         </button>
       </li>
       <li>
-        <button onClick={accept}>
+        <button onClick={()=>{handleAcceptClick(`${props.value}`)}}>
           <img src={process.env.PUBLIC_URL + "/images/동그라미.png"} alt=""/>
         </button>
       </li>
       <li>
-        <button onClick={decline}>
+        <button onClick={handleDeclineClick}>
           <img src={process.env.PUBLIC_URL + "/images/엑스.png"} alt=""/>
         </button>
       </li>

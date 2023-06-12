@@ -21,7 +21,7 @@ let Detail = (props)=>{
       <p>상세 정보</p>
     </div>
     <div className="dInfo">
-      <ul className="col">
+      <ul className="dInfo_col">
         <li>성함</li>
         <li>생년월일</li>
         <li>성별</li>
@@ -29,7 +29,7 @@ let Detail = (props)=>{
         <li>보호자 연락처</li>
         <li>신청 날짜</li>
       </ul>
-      <ul className="row">
+      <ul className="dInfo_row">
         <li>{seniorinfo.name}</li>
         <li>{seniorinfo.birth}</li>
         <li>{seniorinfo.gender}</li>
