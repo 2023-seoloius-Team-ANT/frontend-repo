@@ -16,7 +16,7 @@ const MainFunction = ({ type }) => {
   const styleType = styleMap[type];
   const functionGo = () => {
     if (type === 'care') {
-      navigate('/findHelper');
+      localStorage.length === 0 ? alert("로그인 후 이용해주세요") : navigate('/findHelper')
     }
   };
 
