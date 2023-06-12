@@ -2,7 +2,7 @@
   box-sizing: border-box;
 
   height: auto;
-  width: 90vw;
+  width: auto;
 
   background: #ffffff;
   border: 5px solid #fd3a69;
@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.detailProfileWrapper > div{
+.detailProfileWrapper > div {
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -39,8 +39,6 @@
 }
 .detailProfileWrapper > .detailTag {
   margin-left: 3%;
-
-
 }
 .detailHeader > span {
   font-family: 'Inter';
