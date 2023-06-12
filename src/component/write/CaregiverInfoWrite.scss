@@ -71,7 +71,10 @@
     color: #fecd1a;
   }
 }
-
+.writeinfoBtnArea{
+display: flex;
+justify-content: center;
+}
 //근무일정
 #careSchedule > div,
 #careSchedule > input {

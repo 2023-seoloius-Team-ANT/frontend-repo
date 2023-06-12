@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './CaregiverInfoWrite.scss';
 import SignBtn from '../common/button/SignBtn';
 import axios from '../../../node_modules/axios/index';
 
 const CaregiverInfoWrite = (props) => {
-  // 여기에 url정보 빼오자 회원번호
-
   const [caregiverInfo, setCaregiverInfo] = useState({
     char1: '',
     char2: '',
@@ -19,6 +17,30 @@ const CaregiverInfoWrite = (props) => {
     good: '',
     goal: '',
   });
+  // 여기에 url정보 빼오자 회원번호
+  useEffect(()=>{
+    if(localStorage.length === 1){
+      axios.get(`/api/v1/caregiver/${JSON.parse(localStorage.getItem('user')).numberPk}`)
+      .then((response)=>{
+        console.log(response.data.result)
+        setCaregiverInfo({
+          char1 : response.data.result["char1"],
+          char2 : response.data.result["char2"],
+          char3 : response.data.result["char3"],
+          workday: response.data.result["workday"],
+          workTime: response.data.result["worktime"],
+          info: response.data.result["info"],
+          service: response.data.result["service"],
+          exp: response.data.result["exp"],
+          certifi: response.data.result["certifi"],
+          good: response.data.result["good"],
+          goal: response.data.result["goal"],
+        })
+      })
+
+    }
+  }, [])
+
   //   날짜 1~7일만 받자
   const handleWorkdayChange = (e) => {
     const newValue = parseInt(e.target.value);
@@ -134,8 +156,8 @@ const CaregiverInfoWrite = (props) => {
           placeholder="본인을 소개해주세요"
           name="info"
           onChange={formChange}
+          value={caregiverInfo.info}
         >
-          {caregiverInfo.info}
         </textarea>
       </div>
 
@@ -149,8 +171,8 @@ const CaregiverInfoWrite = (props) => {
           placeholder="고객에게 제공할 서비스를 소개해주세요.&#10;ex) 말벗, 청소 등등"
           name="service"
           onChange={formChange}
+          value={caregiverInfo.service}
         >
-          {caregiverInfo.service}
         </textarea>
       </div>
 
@@ -164,8 +186,8 @@ const CaregiverInfoWrite = (props) => {
           placeholder="요양사님의 경험/경력을 소개해주세요."
           name="exp"
           onChange={formChange}
+          value={caregiverInfo.exp}
         >
-          {caregiverInfo.exp}
         </textarea>
       </div>
 
@@ -179,8 +201,8 @@ const CaregiverInfoWrite = (props) => {
           placeholder="요양사님의 자격증과 취득일자를 적어주세요."
           name="certifi"
           onChange={formChange}
+          value={caregiverInfo.certifi}
         >
-          {caregiverInfo.certifi}
         </textarea>
       </div>
 
@@ -194,8 +216,8 @@ const CaregiverInfoWrite = (props) => {
           placeholder="요양사님의 장점을 소개해주세요."
           name="good"
           onChange={formChange}
+          value={caregiverInfo.good}
         >
-          {caregiverInfo.good}
         </textarea>
       </div>
 
@@ -209,14 +231,15 @@ const CaregiverInfoWrite = (props) => {
           placeholder="요양사님의 포부를 소개해주세요."
           name="goal"
           onChange={formChange}
+          value={caregiverInfo.goal}
         >
-          {caregiverInfo.goal}
         </textarea>
       </div>
-
+      <div className='writeinfoBtnArea'>
       <SignBtn type="button" color="green" onClick={completeModal}>
         저장하기
       </SignBtn>
+      </div>
     </div>
   );
 };
