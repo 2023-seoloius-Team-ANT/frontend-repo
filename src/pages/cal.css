@@ -19,6 +19,7 @@
   margin-left: 12px;
 }
 .header > button {
+  position: relative;
   width: 35px;
   height: 35px;
   background-color: #a9d196;
@@ -27,16 +28,17 @@
   margin-right: 20px;
   box-shadow: 0 0 10px #A9D196;
   border: 0px none;
-  padding: 0;
-  padding-top: 2px;
   cursor: pointer;
 }
 .header > button > img{
-width: 20px
+  width: 20px;
+  position: absolute;
+  top: 6px;
+  right: 7px;
 }
 .info {
   width: 300px;
-  height: 91px;
+  height: 96px;
   margin: 0 auto;
   margin-top: 22px;
   border-bottom: 4px solid #8e6138;
@@ -71,20 +73,20 @@ width: 20px
 .tree {
   position: absolute;
   right: 11px;
-  top: 16px;
+  top: 22px;
 }
 .tree > img {
   width: 68px;
 }
 .fox {
   position: absolute;
-  right: 82px;
-  top: 53px;
+  right: 74px;
+  top: 60px;
 }
 .fox > img{
   width: 36px;
 }
-.info > .green{width: 300px;height: 5px;background-color: #96d778;clear: both;position: absolute; bottom: -2px;}
+.info > .green{width: 300px;height: 4px;background-color: #96d778;clear: both;position: absolute; bottom: -2px;}
 .request {
   width: 300px;
   height: 53px;
@@ -96,7 +98,7 @@ width: 20px
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  gap: 14px;
+  gap: 6px;
 }
 
 .req{
