@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from 'react';
-let Special = ()=>{
+let Special = (props)=>{
   const [seniorinfo, setSeniorinfo] = useState({});
   useEffect(()=> {
-    axios.get("/api/v1/senior/1",{ withCredentials: true, }).then((response)=>{
+    axios.get(`/api/v1/senior/${props.no}`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
         console.log(response.data);
         setSeniorinfo(response.data.result);

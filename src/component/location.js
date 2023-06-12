@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-let Location = () => {
+let Location = (props) => {
   const [seniorinfo, setSeniorinfo] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/v1/senior/1", { withCredentials: true });
+        const response = await axios.get(`/api/v1/senior/${props.no}`, { withCredentials: true });
         if (response.data) {
           console.log(response.data);
           setSeniorinfo(response.data.result);
