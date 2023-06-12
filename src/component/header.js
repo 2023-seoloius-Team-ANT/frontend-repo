@@ -20,8 +20,12 @@ const Header = ()=>{
     <div className="user">
       <p>{user.name} 님,</p>
       <p>어서오세요.</p>
+      <div className="pagebtn">
       <button onClick={()=>{navigate(`/caregivermain/caregivermypage?careno=${JSON.parse(localStorage.getItem('user')).numberPk}`)}}
       className="mypage">마이페이지</button>
+      <button onClick={()=>{localStorage.clear();navigate('/')}}
+      className="mypage">로그아웃</button>
+      </div>
     </div>
     <div className="fox">
       <img  src={process.env.PUBLIC_URL + "/images/fox 1.png" }alt=""/>

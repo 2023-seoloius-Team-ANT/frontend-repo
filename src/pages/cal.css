@@ -56,18 +56,23 @@
   margin: 0;
   margin-left: 18px;
 }
-.mypage {
-  width: 101px;
-  height: 24px;
-  border: 0;
-  border-radius: 10px;
-  background-color: #a9d196;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 15px;
-  line-height: 17px;
-  margin: 0;
+.pagebtn{
+  width: 148px;
+  display: flex;
   margin-left: 18px;
+  justify-content: space-around;
+}
+.mypage {
+  width: 70px;
+    height: 24px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #a9d196;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
 }
 
 .tree {
