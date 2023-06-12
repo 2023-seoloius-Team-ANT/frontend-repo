@@ -86,7 +86,7 @@ const LoginPage = () => {
           onChange={onChange}
         />
         <input
-          type="text"
+          type="password"
           className={userType ? 'seniorColor' : 'careColor'}
           id="userPwd"
           name="pwd"

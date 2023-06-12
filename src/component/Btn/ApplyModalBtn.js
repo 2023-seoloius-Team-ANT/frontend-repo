@@ -1,9 +1,12 @@
-import axios from "axios";
-import "./ApplyModalBtn.css";
-import React, { useState, useRef } from "react";
+import axios from 'axios';
+import './ApplyModalBtn.css';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from '../../../node_modules/react-router-dom/dist/index';
 
 const ApplyModalBtn = (props) => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
   const modalRef = useRef();
   const seniorno = 1;
   const [dataform, setDataform] = useState({
@@ -16,8 +19,8 @@ const ApplyModalBtn = (props) => {
 
   const openModal = () => {
     axios
-      .post("api/v1/connect", dataform, {
-        headers: { "Content-Type": `multipart/form-data` },
+      .post('api/v1/connect', dataform, {
+        headers: { 'Content-Type': `multipart/form-data` },
       })
       .then((response) => {
         setModalOpen(true);
@@ -25,7 +28,7 @@ const ApplyModalBtn = (props) => {
       .catch((error) => {
         // 오류가 발생했을 때의 처리
         console.log(error);
-        alert("이미 신청하셨습니다.");
+        alert('이미 신청하셨습니다.');
       });
   };
 
@@ -50,7 +53,13 @@ const ApplyModalBtn = (props) => {
         <div className="modal" onClick={handleOutsideClick}>
           <div className="modal-content">
             <div className="close">
-              <span onClick={closeModal}>&times;</span>
+              <span
+                onClick={() => {
+                  navigate(`/findHelper`);
+                }}
+              >
+                &times;
+              </span>
             </div>
             <img src="images/ApplySuccess.png" alt="" />
             <div className="md-content">

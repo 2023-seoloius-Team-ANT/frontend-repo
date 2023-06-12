@@ -1,20 +1,19 @@
-import { useNavigate, useParams } from "react-router-dom";
-import "./DetailProfile.css";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
+import { useNavigate } from 'react-router-dom';
+import './DetailProfile.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 const DetailProfile = (props) => {
   const navigate = useNavigate();
 
   const [careName, setCareName] = useState();
   const [careAns, setCareAns] = useState();
   const qname = {
-    1: "자기소개",
-    2: "근무내용",
-    3: "경험",
-    4: "자격증",
-    5: "장점",
-    6: "포부",
+    1: '자기소개',
+    2: '근무내용',
+    3: '경험',
+    4: '자격증',
+    5: '장점',
+    6: '포부',
   };
   const tes = () => {
     axios
@@ -32,6 +31,28 @@ const DetailProfile = (props) => {
         console.log(error);
       });
   };
+
+  function speak(text) {
+    var opt_prop = {
+      rate: 1,
+      pitch: 1.2,
+      lang: 'ko-KR',
+    };
+    console.log('speack start');
+
+    window.speechSynthesis.cancel(); // 현재 읽고있다면 초기화
+
+    const prop = opt_prop || {};
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate = prop.rate || 1; // 속도: 0.1 ~ 10
+    speechMsg.pitch = prop.pitch || 1; // 음높이: 0 ~ 2
+    speechMsg.lang = prop.lang || 'ko-KR';
+    speechMsg.text = text;
+    // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
+    window.speechSynthesis.speak(speechMsg);
+  }
+
   useEffect(() => {
     tes();
   }, []);
@@ -54,25 +75,28 @@ const DetailProfile = (props) => {
       </div>
       <div className="detailTag">답변</div>
       <div className="detailContent">
-        <span>{careAns}</span>
+        <span className="detailSpeechText">{careAns}</span>
       </div>
       <div className="detailFooter">
-        <div className="ttsBtn">
-          <img src="/images/ttsBtn-stop.png" alt="" />
-          <span>다시 듣기</span>
-        </div>
         <div
           className="ttsBtn"
           onClick={() => {
+            speak(careAns);
+          }}
+        >
+          <span>듣기</span>
+        </div>
+        <div
+          className="ttsBtn2"
+          onClick={() => {
             navigate(
               `/HelperDetailProfilePage?careno=${props.careno}&queno=${
-                props.queno === "6" ? 1 : parseInt(props.queno) + 1
-              }&year=${props.year}&month=${props.month}`
+                props.queno === '6' ? 1 : parseInt(props.queno) + 1
+              }&year=${props.year}&month=${props.month}`,
             );
             tes();
           }}
         >
-          <img src="/images/ttsBtn-replay.png" alt="" />
           <span>다음 질문</span>
         </div>
       </div>
