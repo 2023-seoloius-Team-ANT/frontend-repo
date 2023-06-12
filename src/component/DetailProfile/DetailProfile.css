@@ -1,7 +1,7 @@
 .detailProfileWrapper {
   box-sizing: border-box;
 
-  height: 90vmin;
+  height: auto;
   width: 90vw;
 
   background: #ffffff;
@@ -12,7 +12,10 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
+.detailProfileWrapper > div{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .detailHeader {
   height: 50px;
   margin: 0 3% 0 3%;
@@ -36,6 +39,8 @@
 }
 .detailProfileWrapper > .detailTag {
   margin-left: 3%;
+
+
 }
 .detailHeader > span {
   font-family: 'Inter';
@@ -55,7 +60,7 @@
 
 .detailContent > span {
   width: 90vw;
-  height: 30vmin;
+  height: auto;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;

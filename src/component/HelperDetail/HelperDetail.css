@@ -1,19 +1,46 @@
-.HelperDetailWrapper {
+.HelperDetailTemplate {
   display: flex;
   width: 100vw;
   justify-content: center;
 }
 .HelperProfileWrapper {
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 95%;
-  height: 45vh;
   border-bottom: 3px solid #808080;
   background-color: #fff;
   margin-left: 1%;
 }
+.ContentText > span{
+  margin-left: 5px;
+}
+.HelperProfContent > .ContentText{
+  margin-top: 10px;
+}
+.HelperProfileName{
+  display: flex;
+  justify-content: center;
 
-.HelperProfileWrapper > .HelperProfGrid1 > div > .HelperProfCon {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+
+  width: 26vw;
+  height: 40px;
+
+  border-bottom: 3px solid #fecd1a;
+  padding-bottom: 12%;
+  margin-left: 2%;
+}
+
+
+.HelperProfContent > .HelperProfGrid1 > div > .HelperProfCon {
   margin-left: 10%;
+}
+.HelperProfileWrapper > div:nth-child(3){
+margin-top: 7px;
 }
