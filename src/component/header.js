@@ -20,7 +20,7 @@ const Header = ()=>{
     <div className="user">
       <p>{user.name} 님,</p>
       <p>어서오세요.</p>
-      <button onClick={()=>{navigate("/caregivermain/caregivermypage")}}
+      <button onClick={()=>{navigate(`/caregivermain/caregivermypage?careno=${JSON.parse(localStorage.getItem('user')).numberPk}`)}}
       className="mypage">마이페이지</button>
     </div>
     <div className="fox">

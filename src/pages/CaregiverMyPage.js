@@ -6,6 +6,7 @@ import './CaregiverInfoPage.scss';
 import NoticeModal from '../component/write/NoticeModal';
 import { useSearchParams } from '../../node_modules/react-router-dom/dist/index';
 import { useState } from 'react';
+import CareModal from '../component/write/CareModal.js';
 
 
 function CaregiverMyPage() {
@@ -19,7 +20,7 @@ function CaregiverMyPage() {
       <Top/>
       <Cmpheader/>
       <CaregiverInfoWrite careno={searchParams.get("careno")} opencompleteModal={opencompleteModal} />
-      {completeModal && <NoticeModal />}
+      {completeModal && <CareModal />}
   </div>
   );
 }
