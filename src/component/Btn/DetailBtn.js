@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom";
-import "./DetailBtn.css";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import './DetailBtn.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const DetailBtn = (props) => {
   const navigate = useNavigate();
-  const [carename, setCarename] = useState("");
+  const [carename, setCarename] = useState('');
   const handleBtnClick = (value) => {
     navigate(
-      `/HelperDetailProfilePage?careno=${props.careno}&queno=${value}&year=${props.year}&month=${props.month}`
+      `/HelperDetailProfilePage?careno=${props.careno}&queno=${value}&year=${props.year}&month=${props.month}&careName=${props.careName}`,
     );
   };
 
