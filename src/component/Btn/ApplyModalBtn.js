@@ -6,7 +6,7 @@ import { useNavigate } from '../../../node_modules/react-router-dom/dist/index';
 const ApplyModalBtn = (props) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
-
+  const [careName, setCareName] = useState("");
   const modalRef = useRef();
   const seniorno = 1;
   const [dataform, setDataform] = useState({
@@ -24,6 +24,9 @@ const ApplyModalBtn = (props) => {
       })
       .then((response) => {
         setModalOpen(true);
+        axios.get(`/api/v1/caregiver/${props.careno}`).then((res)=>{
+          setCareName(res.data.result.name);
+        })
       })
       .catch((error) => {
         // 오류가 발생했을 때의 처리
@@ -63,7 +66,7 @@ const ApplyModalBtn = (props) => {
             </div>
             <img src="images/ApplySuccess.png" alt="" />
             <div className="md-content">
-              <p>[ {props.careName} ] 요양사님을</p>
+              <p>[ {careName} ] 요양사님을</p>
               <p>신청하였습니다.</p>
               <p>추후 결과를 문자로 </p>
               <p>전달해 드리겠습니다. </p>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 const DetailProfile = (props) => {
   const navigate = useNavigate();
-
+  const carename = props.careName;
   const [careName, setCareName] = useState();
   const [careAns, setCareAns] = useState();
   const qname = {
@@ -55,7 +55,7 @@ const DetailProfile = (props) => {
 
   useEffect(() => {
     tes();
-  }, []);
+  });
 
   // const questionId = props.match.params.id; // 라우트 매개변수에서 questionId를 가져옵니다.
 
@@ -92,7 +92,7 @@ const DetailProfile = (props) => {
             navigate(
               `/HelperDetailProfilePage?careno=${props.careno}&queno=${
                 props.queno === '6' ? 1 : parseInt(props.queno) + 1
-              }&year=${props.year}&month=${props.month}`,
+              }&year=${props.year}&month=${props.month}&careName=${carename}`,
             );
             tes();
           }}
