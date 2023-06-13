@@ -29,7 +29,7 @@ const SignUpPage = () => {
     pwd: '',
     name: '',
     tel: '',
-    telcare: '',
+    telCare: '',
     birth: '',
     address: '',
     gender: 0,
@@ -240,7 +240,7 @@ const SignUpPage = () => {
                 <input
                   className="signUpInput"
                   type="text"
-                  name="telcare"
+                  name="telCare"
                   onChange={formChange}
                   placeholder="보호자 전화번호"
                 />

@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
         setReq(response.data.result);
       }
     });
-  },[]);
+  });
   const reqcnt = req.length;
   return(
        <>

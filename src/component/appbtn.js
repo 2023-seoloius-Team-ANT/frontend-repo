@@ -3,36 +3,64 @@ import { useNavigate } from "../../node_modules/react-router-dom/dist/index"
 import axios from "../../node_modules/axios/index";
 const Appbtn=(props)=>{
   const navigate = useNavigate();
-  const [accept, setAccept] = useState();
-  const [decline, setDecline] = useState();
-  useEffect(()=> {
-    axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
-      if(response.data){
-        console.log(response.data);
-        setAccept(response.data.result);
-      }
-    });
-    axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
-      if(response.data){
-        console.log(response.data);
-        setDecline(response.data.result);
-      }
-    });
-  },[]);
+  // const [accept, setAccept] = useState();
+  // const [decline, setDecline] = useState();
+ 
+  // useEffect(()=> {
+  //   axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
+  //     if(response.data){
+  //       console.log(response.data);
+  //       setAccept(response.data.result);
+  //     }
+  //   });
+  //   axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
+  //     if(response.data){
+  //       console.log(response.data);
+  //       setDecline(response.data.result);
+  //     }
+  //   });
+  // },[]);
+
+  // useEffect(()=>{
+  //   return()=>{
+
+  //   }
+  // }, [decline])
+  const stateChange = ()=>{
+    props.change()
+  }
+  const acceptControl = (action)=>{
+    // console.log(type)
+    if(action === "accept"){
+      axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
+            if(response.data){
+              console.log(response.data);
+              stateChange();
+            }
+          });
+    } else if(action === "decline"){
+      axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
+        if(response.data){
+          console.log(response.data);
+          stateChange();
+        }
+      });
+    }
+  };
   return(
     <ul>
       <li>
-        <button onClick={()=>{navigate(`./view?seniorno=${props.value}`)}}>
+        <button onClick={()=>{navigate(`./view?seniorno=${props.value}&year=${props.year}&month=${props.month}`)}}>
           <img src={process.env.PUBLIC_URL + "/images/상세보기.png"} alt=""/>
         </button>
       </li>
       <li>
-        <button onClick={accept}>
+        <button onClick={() => acceptControl("accept")}>
           <img src={process.env.PUBLIC_URL + "/images/동그라미.png"} alt=""/>
         </button>
       </li>
       <li>
-        <button onClick={decline}>
+        <button onClick={() => acceptControl("decline")}>
           <img src={process.env.PUBLIC_URL + "/images/엑스.png"} alt=""/>
         </button>
       </li>
