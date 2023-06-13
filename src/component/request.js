@@ -1,10 +1,10 @@
 import Reqcnt from "./reqcnt";
 
-const Request = (props)=>{
+const Request = ()=>{
   return(
     <>
        <div className="request">
-        <Reqcnt renderVal={props.rederVal}/>
+        <Reqcnt/>
       </div>
     </>
   )

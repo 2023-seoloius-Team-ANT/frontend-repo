@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-  const Reqcnt = (props)=>{
+  const Reqcnt = ()=>{
   const [req, setReq] = useState([]);
   useEffect(()=> {
     axios.get(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}`).then((response)=>{
@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
         setReq(response.data.result);
       }
     });
-  },[props.renderVal]);
+  });
   const reqcnt = req.length;
   return(
        <>
