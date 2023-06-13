@@ -49,7 +49,7 @@ let Application = ()=>{
                     <p>나이: {user[i].age}세</p>
                     <p>성별: {user[i].gender}</p>
                   </div>
-                  <Appbtn value={user[i].seniorno} year={user[i].year} month={user[i]} change={changeState}/>
+                  <Appbtn value={user[i].seniorno} year={user[i].year} month={user[i]} change={changeState} no={user[i].conno}/>
                 </div>
                   
                 ))

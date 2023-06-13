@@ -6,24 +6,22 @@ const Appbtn=(props)=>{
   const stateChange = ()=>{
     props.change()
   }
-  const acceptControl = (action)=>{
-    // console.log(type)
-    if(action === "accept"){
-      axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
+  const acceptControl = ()=>{
+      axios.put(`/api/v1/connect/${props.no}/accept`,{ withCredentials: true, }).then((response)=>{
             if(response.data){
               console.log(response.data);
               stateChange();
             }
           });
-    } else if(action === "decline"){
-      axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
+      } ;
+  const declineControl = ()=>{
+      axios.put(`/api/v1/connect/${props.no}/decline`,{ withCredentials: true, }).then((response)=>{
         if(response.data){
           console.log(response.data);
           stateChange();
         }
       });
-    }
-  };
+    };
   return(
     <ul>
       <li>
@@ -32,12 +30,12 @@ const Appbtn=(props)=>{
         </button>
       </li>
       <li>
-        <button onClick={() => acceptControl("accept")}>
+        <button onClick={() => {acceptControl(`${props.no}`)}}>
           <img src={process.env.PUBLIC_URL + "/images/동그라미.png"} alt=""/>
         </button>
       </li>
       <li>
-        <button onClick={() => acceptControl("decline")}>
+        <button onClick={() => {declineControl(`${props.no}`)}}>
           <img src={process.env.PUBLIC_URL + "/images/엑스.png"} alt=""/>
         </button>
       </li>
