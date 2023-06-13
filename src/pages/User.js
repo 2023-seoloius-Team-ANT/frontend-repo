@@ -7,13 +7,14 @@ import { useState } from 'react';
 
 
 function User() {
+  const [goren, startRander] = useState(false);
 
   return (
     <div className="wrap">
        <Top/>
       <Header/>
-      <Request/>
-      <Application/>  
+      <Request goren={goren}/>
+      <Application goren={goren} startRander={startRander}/>  
   </div>
   );
 }

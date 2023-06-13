@@ -4,13 +4,14 @@ import axios from "axios";
 import { Routes, Route, Link, useNavigate} from 'react-router-dom';
 import Appbtn from './appbtn';
 
-let Application = ()=>{
+let Application = (props)=>{
   const navigate = useNavigate();
   let [user, setUser] = useState([]);
-  const [goren, startRander] = useState(false);
+  // const [goren, startRander] = useState(false);
+  
   const changeState = ()=>{
-    startRander(!goren);
-    console.log(goren)
+    props.startRander(!props.goren);
+    console.log(props.goren)
   }
 
   useEffect(() => {
@@ -34,7 +35,7 @@ let Application = ()=>{
         setUser(response.data.result);
       }
     });
-  },[goren]);
+  },[props.goren]);
   return(
     <div>
       <div className="application">
