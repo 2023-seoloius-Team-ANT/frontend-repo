@@ -3,29 +3,6 @@ import { useNavigate } from "../../node_modules/react-router-dom/dist/index"
 import axios from "../../node_modules/axios/index";
 const Appbtn=(props)=>{
   const navigate = useNavigate();
-  // const [accept, setAccept] = useState();
-  // const [decline, setDecline] = useState();
- 
-  // useEffect(()=> {
-  //   axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/accept`,{ withCredentials: true, }).then((response)=>{
-  //     if(response.data){
-  //       console.log(response.data);
-  //       setAccept(response.data.result);
-  //     }
-  //   });
-  //   axios.put(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}/decline`,{ withCredentials: true, }).then((response)=>{
-  //     if(response.data){
-  //       console.log(response.data);
-  //       setDecline(response.data.result);
-  //     }
-  //   });
-  // },[]);
-
-  // useEffect(()=>{
-  //   return()=>{
-
-  //   }
-  // }, [decline])
   const stateChange = ()=>{
     props.change()
   }
