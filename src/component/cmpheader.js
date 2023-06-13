@@ -30,8 +30,8 @@ const Cmpheader = ()=>{
           <li>연령: {user.age}세</li>
         </ul>
         <ul>
-          <li>근무요일: </li>
-          <li>근무시간: 협의 가능</li>
+          <li>근무횟수: {user.workday}</li>
+          <li>근무시간: 협의가능</li>
         </ul>
         </div>
       </div>
