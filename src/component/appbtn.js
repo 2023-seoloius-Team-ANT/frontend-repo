@@ -9,6 +9,7 @@ const Appbtn=(props)=>{
   const acceptControl = ()=>{
       axios.put(`/api/v1/connect/${props.no}/accept`,{ withCredentials: true, }).then((response)=>{
             if(response.data){
+              alert("신청을 수락했습니다.")
               console.log(response.data);
               stateChange();
             }
@@ -17,6 +18,7 @@ const Appbtn=(props)=>{
   const declineControl = ()=>{
       axios.put(`/api/v1/connect/${props.no}/decline`,{ withCredentials: true, }).then((response)=>{
         if(response.data){
+          alert("신청을 거절했습니다.")
           console.log(response.data);
           stateChange();
         }
