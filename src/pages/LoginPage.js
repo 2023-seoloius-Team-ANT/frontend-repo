@@ -46,8 +46,10 @@ const LoginPage = () => {
       localStorage.setItem('user', JSON.stringify(response.data.result));
       if(userType){
         navigate("/");
-      } else{
+      }else if(!userType){
         navigate("/caregivermain");
+      }else if(response.data.result.roles === "admin"){
+        navigate("/")//관리자페이지로 이동 링크 설정한거 넣어주세여
       }
     }).catch(()=>{
       alert("로그인에 실패했습니다.")
