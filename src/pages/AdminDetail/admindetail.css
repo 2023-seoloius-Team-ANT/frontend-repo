@@ -1,14 +1,14 @@
-.adminwholething > .padmindetail {
+.adminwholething > .detailjm {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.admindetail1 {
-  width: 40%;
+.detailjm1 {
+  width: 80%;
 }
 
-#admintitlek {
+#titlejm {
   display: flex;
   justify-content: center;
   align-items: center;
