@@ -1,0 +1,18 @@
+.adminwholething > .padmindetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admindetail1 {
+  width: 40%;
+}
+
+#admintitlek {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
