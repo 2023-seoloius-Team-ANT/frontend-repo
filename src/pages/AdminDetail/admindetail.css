@@ -1,18 +1,85 @@
+.adminwholething {
+  height: 100vh;
+  background-color: rgb(240, 242, 245);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .adminwholething > .detailjm {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60%;
+}
+
+.김지민 {
+  margin-top: 20px;
+  background-color: white;
+  height: 100vh;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+}
+
+.김현진 {
+  width: 95%;
+}
+
+.전다연 {
+  cursor: pointer;
 }
 
 .detailjm1 {
-  width: 80%;
+  border: 1px solid #0000001e;
+  width: 550px;
 }
 
 #titlejm {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  font-size: 50px;
+  font-size: 42px;
   letter-spacing: 1px;
-  font-weight: 400;
+  font-weight: 700;
+
+  margin-bottom: 3%;
+}
+
+#contained-modal-title-vcenter {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.indidetail {
+  margin-top: 5px;
+  margin-bottom: 100px;
+  border-radius: 15px;
+  border: 3px solid #a9d196;
+  padding-top: 10px;
+  /* padding-right: 20px; */
+  padding-bottom: 90px;
+  float: right;
+
+  width: 550px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.indidetail > .indidetail1 {
+  padding-left: 220px;
+}
+
+.indidetail > .indidetail2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.indidetail > .indidetail3 {
+  padding-left: 170px;
 }

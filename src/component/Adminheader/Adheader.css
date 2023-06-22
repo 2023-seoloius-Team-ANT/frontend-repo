@@ -1,0 +1,62 @@
+/* asdf */
+.adheader {
+  padding-top: 2%;
+  display: flex;
+  width: 69%;
+  font-size: 30px;
+  font-weight: 600;
+  padding-left: 1%;
+  align-items: center;
+  /* margin-bottom: 1%; */
+  background-color: rgb(240, 242, 245);
+  gap: 35%;
+}
+
+.adheaderimgboxwrap {
+  color: rgb(92, 92, 92);
+  width: 10%;
+}
+
+.adheaderimgbox {
+  padding-top: 1%;
+}
+
+.adminhomebtn {
+  width: 40px;
+  height: 40px;
+  opacity: 0.5;
+  margin-top: 0.3%;
+  cursor: pointer;
+}
+
+.adheaderimgtxt {
+  color: rgb(47, 47, 47);
+  font-size: 20px;
+  margin-top: 15%;
+}
+
+.adheaderbox {
+  width: 55%;
+}
+
+.admenubox {
+  display: flex;
+}
+
+.admenubox > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admenubox > div:hover {
+  color: rgb(0, 177, 62);
+  cursor: pointer;
+}
+
+.admenubox > div > p {
+  display: inline;
+}
+
+/* asdf */

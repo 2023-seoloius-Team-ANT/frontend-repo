@@ -37,7 +37,7 @@ const App = () => {
       <Route path="/caregivermain/view" element={<View />} />
       <Route path="/caregivermain/cal" element={<Cal />} />
 
-      <Route path="/admindetail/list" element={<Kjmadmindetail />} />
+      <Route path="/admin/list" element={<Kjmadmindetail />} />
     </Routes>
   );
 };
