@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from '../../../node_modules/axios/index';
+import Jmpagination from './Jmpagination';
 
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -17,13 +18,17 @@ function Kjmadmindetail() {
   const [modalShow, setModalShow] = React.useState(false);
   const [memno, setMemno] = useState(0);
 
+  //페이지네이션
+  const [limitjm, setLimitjm] = useState(10); //한페이지당 들어갈 인원 수
+  const [pagejm, setPagejm] = useState(1);
+  const offsetjm = (pagejm - 1) * limitjm; //여러 페이지 중에서 한 페이지를 선택할 시, 그 페이지에 나타나는 첫 인물의 넘버
+
   useEffect(() => {
     axios.get('/api/v1/admin/caregiver').then((response) => {
       // console.log(response.data.result);
       setStanmember(response.data.result);
     });
   }, []);
-
   return (
     <div className="adminwholething">
       <Adheader />
@@ -34,9 +39,22 @@ function Kjmadmindetail() {
               최종 승인 대기중인 요양사 리스트
             </Badge>
           </h1>
+          {/* 페이지 당 표시할 게시물 수에 대한 레이블 */}
+          <label>
+            페이지 당 표시할 인원수:&nbsp;
+            <select
+              type="number"
+              value={limitjm}
+              onChange={({ target: { value } }) => setLimitjm(Number(value))}
+            >
+              <option value="10">10</option>
+              <option value="12">12</option>
+            </select>
+          </label>
+          {/* DB로부터 대기중인 요양사 출력하기 */}
           {stanmember.length > 0 ? (
             <ListGroup className="detailjm" defaultActiveKey="#link1">
-              <table class="table table-hover" style={{ fontSize: '23px' }}>
+              <table className="table table-hover" style={{ fontSize: '23px' }}>
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -46,23 +64,46 @@ function Kjmadmindetail() {
                   </tr>
                 </thead>
                 <tbody className="전다연">
-                  {stanmember.map((a, index) => {
-                    return (
-                      <tr
-                        onClick={() => {
-                          setModalShow(true);
-                          setMemno(index);
-                        }}
-                      >
-                        <th>{index + 1}</th>
-                        <td>{stanmember[index].name}</td>
-                        <td>{stanmember[index].age}</td>
-                        <td>
-                          {stanmember[index].gender == 0 ? '남성' : '여성'}
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {stanmember
+                    .slice(offsetjm, offsetjm + limitjm)
+                    .map((a, index) => {
+                      return (
+                        <tr
+                          key={
+                            stanmember.slice(offsetjm, offsetjm + limitjm)[
+                              index
+                            ].careno
+                          }
+                          onClick={() => {
+                            setModalShow(true);
+                            setMemno(index + offsetjm);
+                          }}
+                        >
+                          <th>{index + 1 + offsetjm}</th>
+                          <td>
+                            {
+                              stanmember.slice(offsetjm, offsetjm + limitjm)[
+                                index
+                              ].name
+                            }
+                          </td>
+                          <td>
+                            {
+                              stanmember.slice(offsetjm, offsetjm + limitjm)[
+                                index
+                              ].age
+                            }
+                          </td>
+                          <td>
+                            {stanmember.slice(offsetjm, offsetjm + limitjm)[
+                              index
+                            ].gender == 0
+                              ? '남성'
+                              : '여성'}
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
               <MyVerticallyCenteredModal
@@ -73,12 +114,21 @@ function Kjmadmindetail() {
               />
             </ListGroup>
           ) : null}
+          <footer>
+            <Jmpagination
+              totaljm={stanmember.length}
+              limitjm={limitjm}
+              pagejm={pagejm}
+              setPagejm={setPagejm}
+            />
+          </footer>
         </div>
       </div>
     </div>
   );
 }
 
+//여기서부터 컴포넌트들
 function MyVerticallyCenteredModal(props) {
   return (
     <Modal
