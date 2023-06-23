@@ -47,39 +47,175 @@
 
   margin-bottom: 3%;
 }
-
-#contained-modal-title-vcenter {
+.parentdetailinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* #contained-modal-title-vcenter {
   position: absolute;
   top: 7%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-bottom: 13.5%;
+  display: flex;
+} */
+
+.ohji {
+  height: 650px;
+}
+
+#nopeopleperpage {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .indidetail {
-  margin-top: 5px;
-  margin-bottom: 100px;
-  border-radius: 15px;
-  border: 3px solid #a9d196;
-  padding-top: 10px;
-  /* padding-right: 20px; */
-  padding-bottom: 90px;
-  float: right;
-
-  width: 550px;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.indidetail > .indidetail1 {
-  padding-left: 220px;
-}
-
-.indidetail > .indidetail2 {
   display: flex;
-  justify-content: space-evenly;
 }
 
-.indidetail > .indidetail3 {
-  padding-left: 170px;
+/* 여기서부터 info */
+.etcinfojm {
+  margin-top: 1.5%;
+  margin-bottom: 0px;
+  border-radius: 15px;
+  border: 3px solid grey;
+  padding-top: 10px;
+  padding-bottom: 3%;
+}
+
+.etcinfojm > .etcinfoaddress {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 17px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* .smalladd {
+  border-radius: 14px;
+  background-color: #d63384;
+  color: #fff;
+} */
+
+/* .telreg {
+  display: flex;
+} */
+
+.etcinfotel {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 1%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+.etcinfojm > div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.etcinforegdate {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 1%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfoexp {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfogoal {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfogood {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfoservice {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfointro {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.indicertifiimage {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.sigwon {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+.indidetailtable {
+  width: 70%;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.indidetailtable > div {
+  margin-right: 20px;
+}
+.indidetail21 span {
+  font-weight: 800;
+}
+.indidetail21 div {
+  font-weight: 800;
 }
