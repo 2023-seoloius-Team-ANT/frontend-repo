@@ -44,12 +44,12 @@ const LoginPage = () => {
     }).then((response) => {
       console.log('성공');
       localStorage.setItem('user', JSON.stringify(response.data.result));
-      if(userType){
+      if(response.data.result.roles === "admin"){
+        navigate("/admin/home")//관리자페이지로 이동 링크 설정한거 넣어주세여
+      }else if(userType){
         navigate("/");
       }else if(!userType){
         navigate("/caregivermain");
-      }else if(response.data.result.roles === "admin"){
-        navigate("/")//관리자페이지로 이동 링크 설정한거 넣어주세여
       }
     }).catch(()=>{
       alert("로그인에 실패했습니다.")

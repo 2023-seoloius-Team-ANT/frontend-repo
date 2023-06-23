@@ -15,8 +15,10 @@ const Adheader = () => {
         if (adddpathname === '/admin/home') {
             setAddflag('대시보드');
             
-        } else if (adddpathname === '/') {
+        } else if (adddpathname === '/admin/complain') {
             setAddflag('고객 불만사항');
+        } else if (adddpathname === '/admin/list') {
+            setAddflag('요양사 회원 관리');
         }
     }, [location.pathname]);
 
@@ -32,8 +34,8 @@ const Adheader = () => {
             <div className='adheaderbox'>
                 <div className='admenubox'>
                     <div className='admenudashboard' onClick={() => navigate('/admin/home')}><p>대시보드</p></div>
-                    <div className='admenucgmanagement' onClick={() => navigate()}><p>요양사 회원 관리</p></div>
-                    <div className='admenucl' onClick={() => navigate()}><p>고객 불만사항</p></div>
+                    <div className='admenucgmanagement' onClick={() => navigate('/admin/list')}><p>요양사 회원 관리</p></div>
+                    <div className='admenucl' onClick={() => navigate('/admin/complain')}><p>고객 불만사항</p></div>
                 </div>
             </div>
         </div>
