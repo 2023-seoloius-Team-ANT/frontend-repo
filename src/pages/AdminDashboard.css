@@ -70,10 +70,18 @@
     margin-bottom: 2%;
 }
 
+.css-1igy7s2 {
+
+    visibility: hidden;
+    display: none;
+    height: 0%;
+}
+
 
 .adcdiv3  {
     flex-direction: column;
     width: 1460px;
+    height: auto;;
     justify-content: none;
 }
 
@@ -203,3 +211,13 @@
     margin-right: 4%;
 
   }
+
+.css-apqrd9-MuiTableBody-root > tr:hover {
+
+    background-color: #00000025;
+    cursor: pointer;
+
+
+
+
+}
