@@ -26,7 +26,6 @@ function Kjmadmindetail() {
 
   useEffect(() => {
     axios.get('/api/v1/admin/caregiver').then((response) => {
-      // console.log(response.data.result);
       setStanmember(response.data.result);
     });
   }, []);
@@ -127,7 +126,33 @@ function Kjmadmindetail() {
                 onHide={() => setModalShow(false)}
               />
             </ListGroup>
-          ) : null}
+          ) : (<ListGroup className="detailjm" defaultActiveKey="#link1">
+          <div className="ohji">
+            <table
+              className="table table-hover"
+              style={{ fontSize: '23px' }}
+            >
+              <thead>
+                <tr>
+                  <th scope="col" style={{ width: '20%' }}>
+                    #
+                  </th>
+                  <th scope="col" style={{ width: '30%' }}>
+                    이름
+                  </th>
+                  <th scope="col" style={{ width: '30%' }}>
+                    나이
+                  </th>
+                  <th scope="col" style={{ width: '30%' }}>
+                    성별
+                  </th>
+                </tr>
+              </thead>
+              <tbody style={{width:"100%", textAlign:"center"}}><tr><td colSpan="4">현재 대기중인 요양사가 없습니다.</td></tr></tbody>
+              
+              </table></div></ListGroup>
+              
+              )}
           <footer>
             <Jmpagination
               totaljm={stanmember.length}
