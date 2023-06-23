@@ -57,7 +57,7 @@ element.style {
   padding-right: 80px;
   flex-wrap: wrap;
 }
-.col {
+.dcol {
   display: flex;
   flex-direction: column;
   gap: 11px;
@@ -72,13 +72,13 @@ element.style {
   justify-content: center;
   width: 80px;
 }
-.col > li {
+.dcol > li {
   width: 76px;
   height: 14px;
   background-color: #ffeeb0;
   border-radius: 25px;
 }
-.row {
+.drow {
   display: flex;
   flex-direction: column;
   gap: 11px;
@@ -92,9 +92,9 @@ element.style {
   padding: 0;
   justify-content: center;
 }
-.row > li{
+.drow > li{
 }
-.special {
+.dspecial {
   width: 249px;
   height: 100px;
   margin: 0 38px;
