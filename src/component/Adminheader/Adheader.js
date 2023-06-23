@@ -25,16 +25,21 @@ const Adheader = () => {
     return (
         <div className="adheader">
             <div className='adheaderimgboxwrap'>
-                <div className='adheaderimgbox'></div>
-                <img className='adminhomebtn' src="/images/adminhomebtn.png" onClick={() => navigate('/')} alt="Admin Home Button" />
-                <span>&nbsp; / &nbsp;</span><br />
+                <div className='adheaderimgbox'>
+                     <img className='adminhomebtn' src="/images/adminhomebtn.png" onClick={() => navigate('/')} alt="Admin Home Button" />
+                     <span>&nbsp;&nbsp;</span>
+                </div>
+                
+                
                 <div className='adheaderimgtxt'>{addflag}</div>
             </div>
 
             <div className='adheaderbox'>
                 <div className='admenubox'>
                     <div className='admenudashboard' onClick={() => navigate('/admin/home')}><p>대시보드</p></div>
+
                     <div className='admenucgmanagement' onClick={() => navigate('/admin/list')}><p>요양사 회원 관리</p></div>
+
                     <div className='admenucl' onClick={() => navigate('/admin/complain')}><p>고객 불만사항</p></div>
                 </div>
             </div>

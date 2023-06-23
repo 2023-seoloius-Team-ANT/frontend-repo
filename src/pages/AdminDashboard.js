@@ -291,7 +291,7 @@ const AdminDashboard = () => {
                     <div class="MuiBox-root css-hj60hx">
                       <h6 class="MuiTypography-root MuiTypography-h6 css-wa3mca-MuiTypography-root">매칭 통계</h6>
                       <div class="MuiBox-root css-16pyyvj">
-                        <div class="MuiTypography-root MuiTypography-button css-zs61of-MuiTypography-root">월별
+                        <div class="MuiTypography-root MuiTypography-button css-zs61of-MuiTypography-root">년도별
                         </div>
                       </div>
                     </div>
@@ -310,7 +310,7 @@ const AdminDashboard = () => {
                     table={{
                       columns: [
                         { Header: "일자", accessor: "date", width: "15%" },
-                        { Header: "회원명", accessor: "caregiverId", width: "15%" },
+                        { Header: "노인", accessor: "caregiverId", width: "15%" },
                         { Header: "요양사", accessor: "seniorId", width: "15%" },
                         { Header: "승인/거절", accessor: "choose", width: "12%" },
                         { Header: "사유", accessor: "reason", width: "12%" },
