@@ -63,14 +63,14 @@
   justify-content: space-around;
 }
 .mypage {
-  width: 70px;
+  width: 47px;
     height: 24px;
     border: 0;
     border-radius: 10px;
     background-color: #a9d196;
     font-style: normal;
     font-weight: 900;
-    font-size: 11px;
+    font-size: 10px;
     line-height: 17px;
     margin: 0;
 }

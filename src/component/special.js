@@ -13,7 +13,7 @@ let Special = (props)=>{
 
   return(
     <div>
-  <div className="special">
+  <div className="dspecial">
       <div className="sBtn">
         <div>
           <img src={process.env.PUBLIC_URL + "/images/느낌표.png" }alt=""/>

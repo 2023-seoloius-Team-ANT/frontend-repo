@@ -1,0 +1,109 @@
+.CPcompleteModalBack {
+    /* 모달창 크기 */
+    width: 100%;
+    height: 100%;
+  
+    /* 최상단 위치 */
+    z-index: 999;
+  
+    /* 중앙 배치 */
+    /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+    /* translate는 본인의 크기 기준으로 작동한다. */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    /* 모달창 디자인 */
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .CPcompleteModalBack > .CPcompleteModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    display: flex;
+    justify-content: center;
+  }
+  .CPcompleteModal > .CPtitle {
+    width: 150px;
+    height: 50px;
+    position: relative;
+  
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 60px;
+  }
+  .CPcompleteModal > .CPtitle > img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: -1;
+    left: -10px;
+    top: 5px;
+  }
+  .CPcompleteModal > .CPmodalContent {
+    margin-top: 30px;
+    border: 2px solid #0000004a;
+    border-radius: 10px;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: 85%;
+    height: 57%;
+    padding: 5px;
+  
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 35px;
+    word-break: break-all;
+
+  }
+
+  .CPcompleteModal >.CPcomplain_title{
+    align-items: center;
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 8px;
+  }
+
+  .CPcompleteModal >.CPdetail{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 20px;
+    width: 85%;
+    font-weight: 600;
+  }
+  
+  .CPcomplain_delbtn{
+    position:absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    border: 0;
+    font-size: 35px;
+    margin-right: 10px;
+  }
+
+  .CPtable{
+    height:630px;
+    
+  }
