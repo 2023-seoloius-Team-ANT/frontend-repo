@@ -35,7 +35,7 @@ let Detail = (props)=>{
         <li>{seniorinfo.gender}</li>
         <li>{seniorinfo.tel}</li>
         <li>{seniorinfo.telCare}</li>
-        <li>{seniorinfo.conmonth}</li>
+        <li>{props.year}년&nbsp;{props.month}월</li>
       </ul>
     </div>
   </div>

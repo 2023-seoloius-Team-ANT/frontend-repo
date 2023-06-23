@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "../../node_modules/react-router-dom/dist/index";
 
 const Header = ()=>{
-  let [user, setUser] = useState({});
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
   useEffect(()=> {
     axios.get(`/api/v1/caregiver/${JSON.parse(localStorage.getItem('user')).numberPk}`,{ withCredentials: true, }).then((response)=>{
       if(response.data){
@@ -18,7 +20,12 @@ const Header = ()=>{
     <div className="user">
       <p>{user.name} 님,</p>
       <p>어서오세요.</p>
-      <button className="mypage">마이페이지</button>
+      <div className="pagebtn">
+      <button onClick={()=>{navigate(`/caregivermain/caregivermypage?careno=${JSON.parse(localStorage.getItem('user')).numberPk}`)}}
+      className="mypage">마이페이지</button>
+      <button onClick={()=>{localStorage.clear();navigate('/')}}
+      className="mypage">로그아웃</button>
+      </div>
     </div>
     <div className="fox">
       <img  src={process.env.PUBLIC_URL + "/images/fox 1.png" }alt=""/>

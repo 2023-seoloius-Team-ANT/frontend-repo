@@ -53,7 +53,8 @@ element.style {
   align-content: center;
   gap: 41px;
   padding: 0;
-  padding-left: 16px;
+  padding-left: 10px;
+  padding-right: 80px;
   flex-wrap: wrap;
 }
 .col {
@@ -69,6 +70,7 @@ element.style {
   list-style: none;
   padding: 0;
   justify-content: center;
+  width: 80px;
 }
 .col > li {
   width: 76px;
@@ -95,7 +97,7 @@ element.style {
 .special {
   width: 249px;
   height: 100px;
-  margin: 0 auto;
+  margin: 0 38px;
   margin-top: -46px;
 }
 .sBtn {

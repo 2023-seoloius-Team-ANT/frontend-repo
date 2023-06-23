@@ -29,7 +29,7 @@ const SignUpPage = () => {
     pwd: '',
     name: '',
     tel: '',
-    telcare: '',
+    telCare: '',
     birth: '',
     address: '',
     gender: 0,
@@ -112,7 +112,7 @@ const SignUpPage = () => {
 //위도경도
   const changeLonLat = (location) => {
     
-    axios.get(`https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result&count=1&resCoordType=EPSG3857&reqCoordType=WGS84GEO&appKey=Bf69bciABC95oILSnW7Ot7WQIx2yL2iFri7gSmg1&searchKeyword=${location}`)
+    axios.get(`https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result&count=1&resCoordType=WGS84GEO&reqCoordType=WGS84GEO&appKey=Bf69bciABC95oILSnW7Ot7WQIx2yL2iFri7gSmg1&searchKeyword=${location}`)
       .then((response) => {
 				var lat = response.data.searchPoiInfo.pois.poi[0].frontLat;
 				var lon = response.data.searchPoiInfo.pois.poi[0].frontLon;
@@ -240,7 +240,7 @@ const SignUpPage = () => {
                 <input
                   className="signUpInput"
                   type="text"
-                  name="telcare"
+                  name="telCare"
                   onChange={formChange}
                   placeholder="보호자 전화번호"
                 />

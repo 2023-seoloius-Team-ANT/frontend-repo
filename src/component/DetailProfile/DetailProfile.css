@@ -1,7 +1,7 @@
 .detailProfileWrapper {
   box-sizing: border-box;
 
-  height: 90vmin;
+  height: auto;
   width: 90vw;
 
   background: #ffffff;
@@ -12,7 +12,10 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
+.detailProfileWrapper > div{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .detailHeader {
   height: 50px;
   margin: 0 3% 0 3%;
@@ -27,7 +30,7 @@
   height: 49px;
   background: #ffd745;
   border-radius: 50px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -36,9 +39,11 @@
 }
 .detailProfileWrapper > .detailTag {
   margin-left: 3%;
+
+
 }
 .detailHeader > span {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -55,8 +60,8 @@
 
 .detailContent > span {
   width: 90vw;
-  height: 30vmin;
-  font-family: "Inter";
+  height: auto;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -75,7 +80,22 @@
   width: 40vw;
   height: 10vmin;
   background: #ed174f;
-  font-family: "Inter";
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 39px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.ttsBtn2 {
+  width: 40vw;
+  height: 10vmin;
+  background: #ed174f;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
   font-size: 24px;

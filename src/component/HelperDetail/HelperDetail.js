@@ -14,6 +14,7 @@ const HelperDetail = (props) => {
         if (response.data) {
           const result = Object.values(response.data.result);
           setCaregiverinfo([...result, result.length + 1]);
+          console.log(JSON.stringify(caregiverinfo))
         }
       })
       .catch((error) => {
@@ -27,21 +28,21 @@ const HelperDetail = (props) => {
   }, []);
 
   return (
-    <div className="HelperDetailWrapper">
+    <div className="HelperDetailTemplate">
       <div className="HelperProfileWrapper">
-        <div className="HelperProfName">
+        <div className="HelperProfileName">
           <span>{caregiverinfo[1]}</span>
         </div>
         <div className="HelperProfContent">
           <div className="ContentText">
             <span>
-              {caregiverinfo[5]} /{caregiverinfo[9]} 세
+              {caregiverinfo[5]} /{caregiverinfo[8]} 세
             </span>
             <span>근무요일 : 주 {caregiverinfo[7]}일</span>
             <span>근무시간 : {caregiverinfo[6]}</span>
           </div>
           <div className="HelperProfImg">
-            <img src={caregiverinfo[10]} alt="" />
+            <img src={caregiverinfo[9]} alt="" />
           </div>
         </div>
         <div className="HelperTagWrapper">

@@ -11,12 +11,14 @@ function View(){
   const sch= location.search;
   const params=new URLSearchParams(sch);
   const keyword=params.get('seniorno');
+  const year = params.get("year");
+  const month = params.get("month");
 
   return(
     <div>
     <div className="wrap">
     <Top/>
-    <Detail no={keyword}/>
+    <Detail no={keyword} year={year} month={month}/>
     <Special no={keyword}/>
     <Location no={keyword}/>
     </div>

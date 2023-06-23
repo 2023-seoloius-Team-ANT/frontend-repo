@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-  const Reqcnt = ()=>{
+const Reqcnt = (props)=>{
   const [req, setReq] = useState([]);
+
   useEffect(()=> {
     axios.get(`/api/v1/connect/${JSON.parse(localStorage.getItem('user')).numberPk}`).then((response)=>{
       if(response.data){
@@ -9,8 +10,10 @@ import { useState, useEffect } from "react";
         setReq(response.data.result);
       }
     });
-  },[]);
+  }, [props.goren]);
+
   const reqcnt = req.length;
+
   return(
        <>
         <div className="alarm">

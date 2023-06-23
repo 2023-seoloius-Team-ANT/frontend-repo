@@ -45,7 +45,22 @@
 #careKeyword > div {
   width: 95px;
   height: 35px;
-  padding-left: 19px;
+  padding-left: 17px;
+  display: flex;
+  align-items: center;
+
+  border-radius: 14px;
+  background-color: #223047;
+  color: #fecd1a;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+}
+#careKeyword > div:nth-child(3) {
+  width: 95px;
+  height: 35px;
+  padding-left: 22px;
   display: flex;
   align-items: center;
 
@@ -60,7 +75,7 @@
 #careKeyword > div > .keywordInput {
   border: none;
   background-color: #223047;
-  width: 50px;
+  width: 55px;
   color: #fecd1a;
 
   font-weight: 500;
@@ -71,7 +86,10 @@
     color: #fecd1a;
   }
 }
-
+.writeinfoBtnArea{
+display: flex;
+justify-content: center;
+}
 //근무일정
 #careSchedule > div,
 #careSchedule > input {

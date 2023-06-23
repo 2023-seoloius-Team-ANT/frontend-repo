@@ -35,7 +35,7 @@ let Location = (props) => {
         map = new Tmapv3.Map("map_div", {
           center: new Tmapv3.LatLng(${seniorinfo.lati}, ${seniorinfo.lon}),
           width: "100%",   // 지도의 넓이
-          height: "400px",   // 지도의 높이
+          height: "200px",   // 지도의 높이
           zoom: 16   // 지도 줌레벨
         });
         var marker = new Tmapv3.Marker({
