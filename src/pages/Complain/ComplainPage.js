@@ -1,18 +1,19 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './ComplainPage.scss'
 import ComplainModalBody from './ComplainModal';
 import Adheader from '../../component/Adminheader/Adheader';
 import axios from '../../../node_modules/axios/index';
+import './Paging.css'
+import Pagination from 'react-js-pagination';
 
 const ComplainPage = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const[nickname, setNickname] = useState("홍길동"); // 신고자
-    const[index, setIndex] = useState(0) // 인덱스
-    const[content, setContent] = useState("dd") // 신고내용
-    const[date, setDate] = useState("2023-01-01") // 신고일
     const[clicknum, setClickNum] = useState(0);
 
     const[complains, setComplains] = useState([]);
+    const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
+    const offset = (page - 1) * limit;
 
     const closeModal = e => {
         setIsOpen(e);
@@ -31,35 +32,51 @@ const ComplainPage = () => {
         console.log(complains)
     },[]);
 
+    
+    const handlePageChange = page => {
+          setPage(page);
+    };
+
 
   return (
-    <div className='biggest'>
+      <div className='biggest'>
     <Adheader/>
     <div className='complainWrapper'>
         <div className='compalinContentWrapper'>
         <p className='compalinTitle'>고객 불만사항 관리</p>
+        <div className='CPtable'>
+            <table class="table table-hover" style={{width: "95%", fontSize: "23px"}}>
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">내용</th>
+                    <th scope="col">신고자</th>
+                    <th scope="col">신고일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {complains.slice(offset, offset+limit).map(({id, complainUser, date, content }, i) => (
+                        <tr onClick={() => {openModal(i)}} style={{cursor:"pointer"}}>
+                            <th style={{width: "6%"}}>{((page-1)*limit) +i+1}</th>
+                            <td style={{width: "50%"}}>{content.length >20 ? content.substr(0, 20) + "..." : content}</td>
+                            <td style={{width: "10%"}}>{complainUser}</td>
+                            <td style={{width: "10%"}}>{date}</td>
+                        </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
         
-        <table class="table table-hover" style={{width: "95%", fontSize: "20px"}}>
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">내용</th>
-                <th scope="col">신고자</th>
-                <th scope="col">신고일</th>
-                </tr>
-            </thead>
-            <tbody>
-            {complains.map((complain,i) => (
-                <tr onClick={() => {openModal(i)}}>
-                    <th>{i+1}</th>
-                    <td>{complains[i].content.length > 20 ? complains[i].content.substr(0, 20) + "..." : complains[i].content}</td>
-                    <td>{complains[i].complainUser}</td>
-                    <td>{complains[i].date}</td>
-                </tr>
-            ))}
-            </tbody>
-            
-        </table>
+        <Pagination 
+            activePage={page}
+            itemsCountPerPage={limit} // 한페이지씩 보여줄 아이템 갯수
+            totalItemsCount={complains.length}
+            pageRangeDisplayed={10}
+            prevPageText="<"
+            nextPageText=">"
+            onChange={handlePageChange}
+        />
+        
         {
             isOpen &&
             <ComplainModalBody complainno = {complains[clicknum].complainno} nickname={complains[clicknum].complainUser} date={complains[clicknum].date} content={complains[clicknum].content} closeModal = {closeModal}  />
@@ -70,5 +87,6 @@ const ComplainPage = () => {
     </div>
   )
 };
+
 
 export default ComplainPage;
