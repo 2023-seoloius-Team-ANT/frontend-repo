@@ -11,9 +11,6 @@ import FindHelperPage from './pages/FindHelper/FindHelperPage';
 import HelperProfilePage from './pages/HelperProfile/HelperProfilePage';
 import HelperDetailProfilePage from './pages/HelperDetailProfile/HelperDetailProfilePage';
 import CaregiverMyPage from './pages/CaregiverMyPage';
-import Kjmadmindetail from './pages/AdminDetail/AdminDetail';
-import ComplainPage from './pages/Complain/ComplainPage';
-import AdminDashboard from './pages/AdminDashboard';
 
 const App = () => {
   return (
@@ -32,15 +29,9 @@ const App = () => {
       />
 
       <Route path="/caregivermain" element={<User />} />
-      <Route
-        path="/caregivermain/caregivermypage"
-        element={<CaregiverMyPage />}
-      />
+      <Route path="/caregivermain/caregivermypage" element={<CaregiverMyPage />} />
       <Route path="/caregivermain/view" element={<View />} />
       <Route path="/caregivermain/cal" element={<Cal />} />
-      <Route path="/admin/list" element={<Kjmadmindetail />} />
-      <Route path="/admin/complain" element={<ComplainPage />} />
-      <Route path="/admin/home" element={<AdminDashboard />} />
     </Routes>
   );
 };
