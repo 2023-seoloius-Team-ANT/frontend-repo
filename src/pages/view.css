@@ -50,12 +50,10 @@ element.style {
   border-bottom: 1px solid;
   margin: 0 auto;
   display: flex;
-  align-content: center;
   gap: 41px;
   padding: 0;
   padding-left: 10px;
   padding-right: 80px;
-  flex-wrap: wrap;
 }
 .dcol {
   display: flex;
