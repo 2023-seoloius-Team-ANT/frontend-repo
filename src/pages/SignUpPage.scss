@@ -1,0 +1,295 @@
+.signTitle {
+  margin-top: 7px;
+  padding-left: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 48px;
+
+  &.add {
+    line-height: 40px;
+    margin-top: 0px;
+    padding-left: 0px;
+  }
+}
+
+.signupArea {
+  height: auto;
+  width: 95%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  &.pink {
+    border: 2px solid #fb5d83;
+  }
+  &.green {
+    border: 2px solid #55b682;
+  }
+}
+//address
+#addressForm {
+  padding: 10px;
+  padding-top: 10px;
+}
+.findZipcode {
+  height: 45px;
+  width: 110px;
+  background-color: #2ea45f;
+  color: #ffffff;
+  margin-left: 17px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 990;
+  font-size: 17px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 7px;
+}
+.zipcodeForm{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.zipcodeInput {
+  width: 180px;
+  height: 45px;
+
+  //font
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 40px;
+}
+#addressForm > input {
+  width: 100%;
+  height: 45px;
+  margin-top: 5px;
+
+  //font
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 48px;
+}
+//addressModal
+.zipcodeModalBack {
+  /* 모달창 크기 */
+  width: 100%;
+  height: 100%;
+  padding-left: 29px;
+
+  /* 최상단 위치 */
+  z-index: 999;
+
+  /* 중앙 배치 */
+  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+  /* translate는 본인의 크기 기준으로 작동한다. */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 모달창 디자인 */
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  justify-content: center;
+}
+.zipcodeModalBack > .zipcodeModal {
+  width: 200px;
+  height: 450px;
+}
+.zipcodeModal > button {
+  width: 30px;
+  height: 30px;
+  font-size: large;
+  font-weight: 700;
+}
+
+//input&&Icon setting
+.inputTemplate {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+#inputImg {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#caregiverForm > .inputTemplate > #inputImg {
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.inputTemplate > .signUpInput {
+  border: none;
+  background: transparent;
+  height: 38px;
+  width: 800%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 48px;
+}
+//통신사 선택
+.userTelType {
+  width: 100px;
+  height: 40px;;
+
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 800;
+  color: #444;
+  background-color: #fff;
+
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  margin: 0;
+
+  border: 1px solid #aaa;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  margin-right: 5px;
+}
+//성별선택
+.genderSelect {
+  height: 45px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//customArea(senior)
+#seniorForm {
+  padding-bottom: 15px;
+}
+.CustomAreaTitle {
+  margin-top: 7px;
+  padding-left: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 17px;
+  margin-top: 0px;
+  padding-left: 0px;
+  
+}
+
+#signupGo{
+  display: flex;
+  justify-content: center;
+}
+.inputSeniorInfo > span {
+  width: 80px;
+  margin-left: 20px;
+  //font
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 44px;
+}
+.inputSeniorInfo {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border: 3px solid #455a64;
+  border-radius: 15px;
+  width: 93%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inputSeniorInfo > .signUpInput {
+  border: none;
+  background: transparent;
+  height: 48px;
+  width: 800%;
+  padding-left: 10px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 48px;
+}
+//customArea(caregiver)
+#caregiverForm > .inputTemplate:nth-child(2), #caregiverForm > .inputTemplate:nth-child(5) {
+  height: auto;
+}
+#caregiverForm > .inputTemplate > input[type='file'] {
+  border: 3px solid #455a64;
+  width: 93%;
+  border-radius: 10px;
+  margin: 5px auto 10px auto;
+
+  padding-left: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 42px;
+}
+#caregiverForm > .inputTemplate > input[type='file']::file-selector-button {
+  display: none;
+}
+
+#caregiverForm > .inputTemplate > label {
+  border: 3px solid #fb5d83;
+  padding: 4px 10px;
+  color: #fb5d83;
+  border-radius: 10px;
+  position: absolute;
+  right: 8%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#caregiverForm > .inputTemplate > input[type='checkbox'] {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #fb5d83;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 0px 10px 0px 15px;
+}
+
+#caregiverForm > .inputTemplate > input[type='checkbox']:checked {
+  background-image: url(../../public/images/certificateCheckIcon.png);
+  background-size: 70% 70%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+#caregiverForm > .inputTemplate > span {
+  margin-right: 5px;
+  line-height: 50px;
+  font-size: 17px;
+}
+
+// 선
+.hLine {
+  &#pink {
+    border-bottom: 2px solid #fb5d83;
+  }
+  &#green {
+    border-bottom: 2px solid #55b682;
+  }
+}

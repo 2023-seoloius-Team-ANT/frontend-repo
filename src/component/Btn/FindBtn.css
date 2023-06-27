@@ -1,0 +1,152 @@
+.FindBtnWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FindBtn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 90vw;
+  height: 15vmin;
+
+  background: #fd3a69;
+  border-radius: 20px;
+
+  margin-bottom: 2vmax;
+}
+
+.FindBtn > span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 48px;
+
+  color: #ffffff;
+}
+
+.Guidebox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 45vh;
+  border: 3px solid #ed174f;
+}
+
+.GuideText {
+  width: 90vw;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 50px;
+
+  text-align: center;
+
+  color: #000000;
+}
+.HelperListTemplete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.HelperProfWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 95%;
+  height: 45vh;
+  border-bottom: 3px solid #ed174f;
+  background-color: #fff;
+  margin-bottom: 5vmax;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.HelperProfContWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.HelperProfName {
+  display: flex;
+  justify-content: center;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+
+  width: 26vw;
+  height: 40px;
+
+  border-bottom: 3px solid #fecd1a;
+  padding-bottom: 12%;
+  margin-left: 5%;
+}
+
+.HelperProfContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.ContentText {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: space-between;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 150px;
+  padding-left: 5%;
+}
+
+.HelperProfImg {
+  display: flex;
+  padding-right: 4%;
+}
+.HelperProfImg > img {
+  width: 100px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.HelperTagWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+}
+.HelperTag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32%;
+  height: 40px;
+  background: #223047;
+  border-radius: 15px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 60px;
+  color: #fecd1a;
+}

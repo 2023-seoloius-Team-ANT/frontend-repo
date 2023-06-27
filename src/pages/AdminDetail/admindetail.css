@@ -1,0 +1,223 @@
+.adminwholething {
+  height: 100vh;
+  background-color: rgb(240, 242, 245);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminwholething > .detailjm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.김지민 {
+
+  background-color: white;
+  height: 100vh;
+  width: 76%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+  border-radius: 14px;
+  box-shadow: 5px 5px rgba(0,0,0,0.078);
+}
+
+.김현진 {
+  width: 95%;
+}
+
+.전다연 {
+  cursor: pointer;
+}
+
+.detailjm1 {
+  border: 1px solid #0000001e;
+  width: 550px;
+}
+
+#titlejm {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 42px;
+  letter-spacing: 1px;
+  font-weight: 700;
+
+  margin-bottom: 3%;
+}
+.parentdetailinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* #contained-modal-title-vcenter {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 13.5%;
+  display: flex;
+} */
+
+.ohji {
+  height: 650px;
+}
+
+#nopeopleperpage {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.indidetail {
+  display: flex;
+}
+
+/* 여기서부터 info */
+.etcinfojm {
+  margin-top: 1.5%;
+  margin-bottom: 0px;
+  border-radius: 15px;
+  border: 3px solid grey;
+  padding-top: 10px;
+  padding-bottom: 3%;
+}
+
+.etcinfojm > .etcinfoaddress {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 17px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* .smalladd {
+  border-radius: 14px;
+  background-color: #d63384;
+  color: #fff;
+} */
+
+/* .telreg {
+  display: flex;
+} */
+
+.etcinfotel {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 1%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+.etcinfojm > div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.etcinforegdate {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 1%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfoexp {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfogoal {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfogood {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfoservice {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.etcinfointro {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.indicertifiimage {
+  margin-top: 1%;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.sigwon {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+.indidetailtable {
+  width: 70%;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.indidetailtable > div {
+  margin-right: 20px;
+}
+.indidetail21 span {
+  font-weight: 800;
+}
+.indidetail21 div {
+  font-weight: 800;
+}
